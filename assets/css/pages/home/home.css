@@ -1,1 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Fundo azul com gradiente */
+    background: radial-gradient(circle, #106ecc 0%, #010f22 100%);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+/* Logo */
+.logo img {
+    width: 450px;
+    margin-bottom: 40px;
+    max-width: 90%;
+}
+
+/* Botão */
+.btn-start {
+    background-color: #ffd700;
+    color: black;
+    border: none;
+    padding: 15px 50px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+
+    /* sombra */
+    box-shadow: 0 5px 0 #b89b00;
+
+    transition: 0.2s;
+}
+
+/* efeito clique */
+.btn-start:active {
+    transform: translateY(5px);
+    box-shadow: 0 0 0 #b89b00;
+}
+
+/* hover */
+.btn-start:hover {
+    background-color: #ffcc00;
+}
