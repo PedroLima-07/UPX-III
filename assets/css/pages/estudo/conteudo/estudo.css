@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #0b2a5b, #1e4fa3);
+  color: white;
+}
+
+/* TOPO */
+.topo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 25px;
+}
+
+/* VOLTAR */
+.voltar {
+  position: absolute;
+  left: 20px;
+  top: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* LOGO */
+.logo-container img {
+  height: 200px;
+}
+
+/* LAYOUT */
+.container {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+}
+
+/* MENU */
+.menu {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu button {
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 6px;
+  background: #123c7a;
+  color: white;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.menu button:hover {
+  background: #1e5bb8;
+}
+
+/* BOTÃO ATIVO */
+.menu .ativo {
+  background: #ffd700;
+  color: black;
+}
+
+/* CONTEÚDO */
+.conteudo {
+  flex: 1;
+  background: #0f2f63;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+/* TÍTULO */
+.conteudo h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* DICA */
+.dica {
+  margin-top: 20px;
+  padding: 15px;
+  background: #2a56a5;
+  border-left: 5px solid #ffd700;
+  border-radius: 8px;
+}
