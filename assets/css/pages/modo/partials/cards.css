@@ -1,0 +1,186 @@
+.container_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 125px;
+}
+/*cards*/
+.card1 {
+  background-color: #10224a;
+  border: 2px solid #ffcc00;
+  border-radius: 45px;
+
+  width: 325px;
+  height: 451px;
+}
+.card2 {
+  background-color: #10224a;
+  border: 2px solid #ffcc00;
+  border-radius: 45px;
+
+  width: 325px;
+  height: 451px;
+}
+.card3 {
+  background-color: #10224a;
+  border: 2px solid #ffcc00;
+  border-radius: 45px;
+
+  width: 325px;
+  height: 451px;
+}
+/*regulando o tamanho das imagens*/
+.card1-img {
+  margin-top: -30px;
+  height: 140px;
+}
+.card2-img {
+  margin-top: -30px;
+  height: 140px;
+}
+.card3-img {
+  margin-top: -30px;
+  height: 140px;
+}
+/*titulo dos cards*/
+.card1-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 28px;
+  font-weight: bold;
+  color: #eacd5a;
+}
+.card2-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 28px;
+  font-weight: bold;
+  color: #eacd5a;
+}
+.card3-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 28px;
+  font-weight: bold;
+  color: #eacd5a;
+}
+/*descrição dos cards*/
+.card1-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card2-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card3-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card1-text p {
+  width: 90%;
+  margin-top: -20px;
+  text-align: center;
+
+  color: white;
+  font-size: 28px;
+}
+.card2-text p {
+  width: 90%;
+  margin-top: -20px;
+  text-align: center;
+
+  color: white;
+  font-size: 28px;
+}
+.card3-text p {
+  width: 90%;
+  margin-top: -20px;
+  text-align: center;
+
+  color: white;
+  font-size: 28px;
+}
+/*Alinhamento dos botões*/
+.card1-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card2-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card3-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*estilização dos botões*/
+.card1-button button {
+  background-color: #ffd700;
+  border: none;
+  border-radius: 20px;
+  width: 216px;
+  height: 72px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #000000;
+
+  /* sombra */
+  box-shadow: 0 5px 0 #b89b00;
+
+  transition: 0.2s;
+}
+.card2-button button {
+  background-color: #ffd700;
+  border: none;
+  border-radius: 20px;
+  width: 216px;
+  height: 72px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #000000;
+
+  /* sombra */
+  box-shadow: 0 5px 0 #b89b00;
+  transition: 0.2s;
+}
+.card3-button button {
+  background-color: #ffd700;
+  border: none;
+  border-radius: 20px;
+  width: 216px;
+  height: 72px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #000000;
+
+  /* sombra */
+  box-shadow: 0 5px 0 #b89b00;
+  transition: 0.2s;
+}
+
+/*efeito clique*/
+.card1-button:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 #b89b00;
+}
+.card2-button:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 #b89b00;
+}
+.card3-button:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 #b89b00;
+}

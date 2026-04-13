@@ -1,34 +1,46 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
 
-    /* Fundo azul com gradiente */
-    background: radial-gradient(circle, #106ecc 0%, #010f22 100%);
-    font-family: Arial, Helvetica, sans-serif;
+  align-items: flex-start;
+  padding-top: 100px;
+
+  /* Fundo azul com gradiente */
+  background: radial-gradient(circle, #106ecc 0%, #010f22 100%);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
-    text-align: center;
+  text-align: center;
 }
 
 /* Logo */
 .logo img {
+<<<<<<< HEAD
     width: 700px;
     margin-bottom: 10px;
     max-width: 90%;
+=======
+  width: 700px;
+  margin-bottom: 10px;
+  max-width: 90%;
+>>>>>>> main
 }
 
 /* Botão */
 .btn-start {
+<<<<<<< HEAD
     position: absolute;
+=======
+position: absolute;
+>>>>>>> main
     top: 65%; /* controla altura do botão */
     left: 50%;
     transform: translateX(-50%);
@@ -47,11 +59,11 @@ body {
 
 /* efeito clique */
 .btn-start:active {
-    transform: translateY(5px);
-    box-shadow: 0 0 0 #b89b00;
+  transform: translateY(5px);
+  box-shadow: 0 0 0 #b89b00;
 }
 
 /* hover */
 .btn-start:hover {
-    background-color: #ffcc00;
+  background-color: #ffcc00;
 }
