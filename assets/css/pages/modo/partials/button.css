@@ -1,0 +1,74 @@
+/*Alinhamento dos botões*/
+.card1-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card2-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card3-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*estilização dos botões*/
+.card1-button button {
+  background-color: #ffd700;
+  border: none;
+  border-radius: 20px;
+  width: 216px;
+  height: 72px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #000000;
+
+  /* sombra */
+  box-shadow: 0 5px 0 #b89b00;
+
+  transition: 0.2s;
+}
+.card2-button button {
+  background-color: #ffd700;
+  border: none;
+  border-radius: 20px;
+  width: 216px;
+  height: 72px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #000000;
+
+  /* sombra */
+  box-shadow: 0 5px 0 #b89b00;
+  transition: 0.2s;
+}
+.card3-button button {
+  background-color: #ffd700;
+  border: none;
+  border-radius: 20px;
+  width: 216px;
+  height: 72px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #000000;
+
+  /* sombra */
+  box-shadow: 0 5px 0 #b89b00;
+  transition: 0.2s;
+}
+
+/*efeito clique*/
+.card1-button:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 #b89b00;
+}
+.card2-button:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 #b89b00;
+}
+.card3-button:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 #b89b00;
+}

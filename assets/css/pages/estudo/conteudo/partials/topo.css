@@ -1,0 +1,34 @@
+body {
+  color: white;
+}
+
+/* TOPO */
+.topo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 25px;
+}
+
+/* VOLTAR */
+.voltar {
+  position: absolute;
+  left: 20px;
+  top: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* LOGO */
+.logo-container img {
+  height: 200px;
+}
+
+/* LAYOUT */
+.container {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+}

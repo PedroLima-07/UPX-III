@@ -1,0 +1,27 @@
+/* Botão */
+.btn-start {
+  background-color: #ffd700;
+  color: black;
+  border: none;
+  padding: 15px 50px;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+
+  /* sombra */
+  box-shadow: 0 5px 0 #b89b00;
+
+  transition: 0.2s;
+}
+
+/* efeito clique */
+.btn-start:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 #b89b00;
+}
+
+/* hover */
+.btn-start:hover {
+  background-color: #ffcc00;
+}
