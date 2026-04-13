@@ -1,6 +1,3 @@
-body {
-  background: radial-gradient(circle, #1e90ff 0%, #0a0f2c 100%);
-}
 .logo {
   display: flex;
   height: 170px;
@@ -9,17 +6,17 @@ body {
   align-items: center;
 }
 .logo img {
-  width: 531px;
-  height: 380px;
+  width: 477px;
+  height: 342px;
 }
 .subtitle {
-  margin-top: -55px;
+  margin-top: -40px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .subtitle h2 {
   font-weight: bold;
-  font-size: 40px;
+  font-size: 36px;
   color: #fff;
 }

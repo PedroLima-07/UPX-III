@@ -3,6 +3,10 @@
   justify-content: center;
   align-items: center;
   gap: 125px;
+
+  /*Serve para descer os cards um pouco para baixo e não encostar na borda*/
+  margin-top: 40px;
+  margin-bottom: 45px;
 }
 /*cards*/
 .card1 {
@@ -10,43 +14,82 @@
   border: 2px solid #ffcc00;
   border-radius: 45px;
 
-  width: 325px;
-  height: 451px;
+  width: 293px;
+  height: 383px;
+
+  /*serve para organizar os elementos dentro do card em coluna*/
+  display: flex;
+  flex-direction: column;
 }
 .card2 {
   background-color: #10224a;
   border: 2px solid #ffcc00;
   border-radius: 45px;
 
-  width: 325px;
-  height: 451px;
+  width: 293px;
+  height: 383px;
+
+  /*serve para organizar os elementos dentro do card em coluna*/
+  display: flex;
+  flex-direction: column;
 }
 .card3 {
   background-color: #10224a;
   border: 2px solid #ffcc00;
   border-radius: 45px;
 
-  width: 325px;
-  height: 451px;
+  width: 293px;
+  height: 383px;
+
+  /*serve para organizar os elementos dentro do card em coluna*/
+  display: flex;
+  flex-direction: column;
 }
-/*regulando o tamanho das imagens*/
+/*regulando a margin das imagens*/
 .card1-img {
-  margin-top: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 140px;
 }
 .card2-img {
-  margin-top: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 140px;
 }
 .card3-img {
-  margin-top: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 140px;
 }
-/*titulo dos cards*/
+
+/*regulando o tamanho das imagens*/
+.card1-img img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  /*o object-fit serve para que a imagem se ajuste ao container sem distorcer a proporção*/
+}
+.card2-img img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+}
+.card3-img img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+}
+/*titulo dos cards */
+
 .card1-title {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin-top: -20px;
 
   font-size: 28px;
   font-weight: bold;
@@ -57,6 +100,8 @@
   justify-content: center;
   align-items: center;
 
+  margin-top: -20px;
+
   font-size: 28px;
   font-weight: bold;
   color: #eacd5a;
@@ -65,6 +110,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin-top: -20px;
 
   font-size: 28px;
   font-weight: bold;
@@ -75,38 +122,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin-top: 15px;
 }
 .card2-text {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin-top: 15px;
 }
 .card3-text {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin-top: 15px;
 }
 .card1-text p {
   width: 90%;
-  margin-top: -20px;
   text-align: center;
 
   color: white;
-  font-size: 28px;
+  font-size: 24px;
 }
 .card2-text p {
   width: 90%;
-  margin-top: -20px;
   text-align: center;
 
   color: white;
-  font-size: 28px;
+  font-size: 24px;
 }
 .card3-text p {
   width: 90%;
-  margin-top: -20px;
   text-align: center;
 
   color: white;
-  font-size: 28px;
+  font-size: 24px;
 }
