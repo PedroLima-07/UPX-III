@@ -1,5 +1,11 @@
 /* Botão */
 .btn-start {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+
+  transform: translate(-50%, 0);
+
   background-color: #ffd700;
   color: black;
   border: none;
@@ -12,12 +18,14 @@
   /* sombra */
   box-shadow: 0 5px 0 #b89b00;
 
-  transition: 0.2s;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease; /* IMPORTANTE */
 }
 
 /* efeito clique */
 .btn-start:active {
-  transform: translateY(5px);
+  transform: translate(-50%, 5px); /* mantém central + desce */
   box-shadow: 0 0 0 #b89b00;
 }
 

@@ -2,7 +2,9 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+
+  align-items: flex-start;
+  padding-top: 100px;
 
   /* Fundo azul com gradiente */
   font-family: Arial, Helvetica, sans-serif;
@@ -14,7 +16,7 @@ body {
 
 /* Logo */
 .logo img {
-  width: 450px;
-  margin-bottom: 40px;
+  width: 700px;
+  margin-bottom: 10px;
   max-width: 90%;
 }
