@@ -1,60 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Modo Estudo</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Modo Estudo</title>
 
-  <link rel="stylesheet" href="../assets/css/pages/estudo/conteudo/estudo.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="../assets/css/pages/estudo/conteudo/estudo.css"
+    />
+  </head>
+  <body>
+    <header class="topo">
+      <a href="../modo.html" class="voltar">⬅ VOLTAR</a>
 
-<header class="topo">
-  <a href="../modo.html" class="voltar">⬅ VOLTAR</a>
+      <div class="logo-container">
+        <img src="../assets/img/logo2UPX.png" />
+      </div>
+    </header>
 
-  <div class="logo-container">
-    <img src="../assets/img/logo2UPX.png">
-  </div>
-</header>
+    <main class="container">
+      <aside class="menu">
+        <button data-page="modo-estudo">INTRODUÇÃO</button>
 
-<main class="container">
+        <button data-page="energia-solar">ENERGIA SOLAR</button>
 
-  <aside class="menu">
-    <a href="modo-estudo.html"><button data-page="modo-estudo">INTRODUÇÃO</button></a>
-    <a href="energia-solar.html"><button data-page="energia-solar">ENERGIA SOLAR</button></a>
-    <a href="energia-eolica.html"><button data-page="energia-eolica">ENERGIA EÓLICA</button></a>
-    <a href="hidreletrica.html"><button data-page="hidreletrica">HIDRELÉTRICA</button></a>
-    <a href="biomassa.html"><button data-page="biomassa">BIOMASSA</button></a>
-    <a href="impactos.html"><button data-page="impactos">IMPACTOS</button></a>
-  </aside>
+        <button data-page="energia-eolica">ENERGIA EÓLICA</button>
 
-  <section class="conteudo">
-    <h2>INTRODUÇÃO</h2>
-    <p>Bem-vindo ao modo estudo ⚡</p>
+        <button data-page="hidreletrica">HIDRELÉTRICA</button>
 
-    <p>
-    O mundo está mudando, e a forma como produzimos energia é o coração dessa transformação. Atualmente, a maior parte da energia global ainda vem de fontes que poluem o ar e aceleram o aquecimento global.
-    </p>
+        <button data-page="biomassa">BIOMASSA</button>
 
-    <p>
-    O EnerQuest nasceu para mostrar que existe um caminho diferente: as energias renováveis. Elas são limpas, infinitas e respeitam o equilíbrio da natureza.
-    </p>
+        <button data-page="impactos">IMPACTOS</button>
+      </aside>
 
-    <p>
-    Além de serem mais sustentáveis, essas energias ajudam a reduzir a dependência de combustíveis fósseis, contribuindo para um futuro mais equilibrado e saudável para o planeta.
-    </p>
+      <section class="conteudo">
+        <!-- tem que concertart essa dica -->
+        <div class="dica">
+          💡 <strong>Dica:</strong> Energias renováveis são o futuro!
+        </div>
+      </section>
+    </main>
 
-    <p>
-    Com o avanço da tecnologia, essas fontes estão se tornando cada vez mais acessíveis, permitindo que mais pessoas adotem soluções sustentáveis no dia a dia.
-    </p>
-
-    <div class="dica">
-      💡 <strong>Dica:</strong> Energias renováveis são o futuro!
-    </div>
-  </section>
-
-</main>
-
-<script src="../assets/js/estudo/menu-ativo.js"></script>
-
-</body>
+    <script src="../assets/js/pages/estudo/menu-ativo.js"></script>
+  </body>
 </html>

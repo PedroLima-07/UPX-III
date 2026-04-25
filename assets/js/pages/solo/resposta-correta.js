@@ -1,9 +1,8 @@
 // pega o botão
 const btnProximo = document.getElementById("btn-proximo");
 
-botoes.forEach(botao => {
+botoes.forEach((botao) => {
   botao.addEventListener("click", () => {
-
     feedback.classList.remove("correto", "errado");
 
     if (botao.textContent.trim().toUpperCase() === "SOLAR") {
@@ -19,4 +18,5 @@ botoes.forEach(botao => {
     // 🔥 mostra botão próximo
     btnProximo.style.display = "block";
   });
-});s
+});
+s;
