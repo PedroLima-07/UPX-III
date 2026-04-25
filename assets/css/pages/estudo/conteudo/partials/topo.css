@@ -22,8 +22,15 @@ body {
 }
 
 /* LOGO */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -100px;
+  margin-bottom: -125px;
+}
 .logo-container img {
-  height: 200px;
+  height: 400px;
 }
 
 /* LAYOUT */
