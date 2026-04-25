@@ -1,0 +1,97 @@
+/* =========================
+   RESULTADO (USANDO GLOBAL)
+   ========================= */
+
+/* NÃO mexe no body (global já controla fundo) */
+
+/* LOGO - só aumenta */
+.logo {
+  width: 460px;
+  max-width: 90%;
+}
+
+/* TOPO - só ajuste leve */
+.topo {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* CONTAINER - usa estrutura global mas organiza */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* CARD */
+.card {
+  background: rgba(15, 37, 87, 0.95);
+  border: 2px solid gold;
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  color: white;
+}
+
+/* TEXTOS */
+.card h2 {
+  margin-bottom: 10px;
+}
+
+.card h3 span {
+  color: gold;
+}
+
+/* VIDAS */
+.vidas {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+/* BOTÕES */
+.botoes {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* BOTÃO (usa global, só melhora leve) */
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+/* HOVER */
+.btn:hover {
+  transform: scale(1.05);
+}
+/* FORÇA TEXTO BRANCO */
+body {
+  color: white;
+}
+
+/* LINKS NÃO FICAREM ROXOS */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* BOTÕES VOLTAM AO PADRÃO */
+.btn {
+  background: linear-gradient(90deg, #1e3c72, #fbd72b);
+  color: white !important;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+}
+
+/* HOVER */
+.btn:hover {
+  transform: scale(1.05);
+}

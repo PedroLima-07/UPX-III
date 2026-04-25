@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>EnerQuest</title>
+  <script src="assets/js\estudo\resposta-correta.js" defer></script>
+  <link rel="stylesheet" href="assets/css/pages/solo/quiz/quiz.css">
+</head>
+<body>
+
+  <div class="game">
+
+    <div class="pergunta">
+      Qual dessas fontes de energia é considerada inesgotável pois depende apenas da radiação solar?
+    </div>
+
+    <div class="respostas">
+      <button>PETRÓLEO</button>
+      <button>CARVÃO MINERAL</button>
+      <button>SOLAR</button>
+      <button>GÁS NATURAL</button>
+    </div>
+
+    <div id="feedback" class="feedback">
+      <p id="mensagem"></p>
+    </div>
+    <button id="btn-proximo" class="btn-proximo">PRÓXIMO</button>
+  </div>
+
+  <script>
+    const botoes = document.querySelectorAll(".respostas button");
+    const feedback = document.getElementById("feedback");
+    const mensagem = document.getElementById("mensagem");
+
+    botoes.forEach(botao => {
+      botao.addEventListener("click", () => {
+
+        feedback.classList.remove("correto", "errado");
+
+        if (botao.textContent.trim().toUpperCase() === "SOLAR") {
+          feedback.classList.add("correto");
+          mensagem.textContent = "✅ Resposta correta!";
+        } else {
+          feedback.classList.add("errado");
+          mensagem.textContent = "❌ Resposta incorreta!";
+        }
+
+        feedback.style.display = "block";
+      });
+    });
+  </script>
+
+</body>
+</html>
