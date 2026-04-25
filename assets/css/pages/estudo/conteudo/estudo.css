@@ -3,3 +3,34 @@
 @import url(../conteudo/partials/topo.css);
 
 @import url(/assets/css/global/normalize.css);
+
+.logo-container img {
+  height: 350px;
+  object-fit: contain;
+}
+.topo {
+  padding: 10px 0;
+}
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  align-items: stretch; /* importante */
+}
+.menu button {
+  height: 42px;
+  width: 200px;
+}
+.conteudo {
+  flex: 1;
+  min-height: 50vh;
+}
+.conteudo p {
+  font-size: 15px;
+  line-height: 1.6;
+
+}
+.dica {
+  margin-top: 15px;
+  padding: 10px;
+}
