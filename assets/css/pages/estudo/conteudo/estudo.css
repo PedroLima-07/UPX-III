@@ -1,5 +1,6 @@
-@import url(../conteudo/partials/conteudo.css);
+@import url(../conteudo/partials/base-conteudo.css);
 @import url(../conteudo/partials/menu.css);
 @import url(../conteudo/partials/topo.css);
+@import url(../conteudo/partials/conteudo.css);
 
 @import url(/assets/css/global/normalize.css);
