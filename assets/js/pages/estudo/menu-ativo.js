@@ -33,24 +33,147 @@ const paginas = {
   `,
 
   "energia-solar": `
-    <h2>ENERGIA SOLAR ☀️</h2>
+    <section class="conteudo">
 
+  <h2>☀️ Energia Solar</h2>
+
+  <h3>📖 O que é Energia Solar?</h3>
+  <div class="divisao">
+
+    <div class="texto">
       <p>
-        A energia solar é obtida a partir da luz do sol, sendo uma das fontes de energia renovável mais utilizadas no mundo. Ela é captada por meio de painéis solares, que transformam a luz solar em energia elétrica.
+        A <strong>energia solar</strong> é a energia proveniente da luz e do calor do Sol. 
+        Ela é considerada uma <strong>fonte renovável</strong>, pois o Sol continuará emitindo energia por bilhões de anos.
       </p>
 
-      <p>
-        Essa fonte de energia é limpa, sustentável e não emite poluentes durante sua utilização. Além disso, o sol é uma fonte inesgotável, o que torna a energia solar uma excelente alternativa para o futuro.
-      </p>
+      <p>Essa energia pode ser transformada em:</p>
+      <ul>
+        <li>⚡ <strong>Energia elétrica</strong> (painéis solares)</li>
+        <li>🔥 <strong>Energia térmica</strong> (aquecimento de água)</li>
+      </ul>
+    </div>
 
-      <p>
-        Entre suas principais vantagens estão a redução da conta de energia elétrica e a baixa necessidade de manutenção dos equipamentos.
-      </p>
+    <div class="foto">
+      <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276" alt="Painéis solares">
+    </div>
 
-      <p>
-        Por outro lado, sua eficiência pode ser afetada em dias nublados ou chuvosos, e o custo inicial de instalação pode ser elevado. Mesmo assim, é uma das energias que mais cresce atualmente.
-      </p>
+    </div>
 
+  <h3 class="como-funciona">⚙️ Como funciona?</h3>
+  
+  <div class="divisao">
+  <div class="foto">
+  <img src="/assets/img/Solar.jpg" alt="Funcionamento da energia solar">
+  </div>
+  <div class="texto">
+  <ol>
+    <li>A luz do Sol atinge os painéis solares</li>
+    <li>As células fotovoltaicas convertem em eletricidade</li>
+    <li>O inversor transforma em energia utilizável</li>
+    <li>A energia é usada na casa</li>
+  </ol>
+
+  <p><strong>👉 Esse processo é chamado de efeito fotovoltaico</strong></p>
+  </div>
+  </div>
+
+  <h3>🔬 Tipos de Energia Solar</h3>
+
+<div class="bloco-tipo">
+  <h5>☀️ Energia Fotovoltaica</h5>
+  <p>
+    Converte a luz do Sol em <strong>energia elétrica</strong>. 
+    É usada em casas, empresas e usinas solares.
+  </p>
+</div>
+
+<div class="bloco-tipo">
+  <h5>🔥 Energia Térmica</h5>
+  <p>
+    Utiliza o calor do Sol para <strong>aquecer água</strong>. 
+    Muito comum em chuveiros solares.
+  </p>
+</div>
+
+
+<h4>⚖️ Diferença entre os tipos</h4>
+
+<div class="diferenca">
+  <p><strong>Fotovoltaica:</strong> gera eletricidade, custo mais alto</p>
+</div>
+<div class="diferenca">
+  <p><strong>Térmica:</strong> aquece água, custo mais baixo</p>
+</div>
+
+
+<div class="separacao">
+<div class="Tipos">
+<h4>✅ Vantagens da Energia Solar</h4>
+<ul class="vantagens">
+  <li>🌱 Não polui o meio ambiente</li>
+  <li>♻️ Fonte renovável</li>
+  <li>💰 Pode reduzir a conta de luz</li>
+  <li>🔧 Baixa manutenção</li>
+</ul>
+</div>
+
+<div class="Tipos">
+<h4>❌ Desvantagens da Energia Solar</h4>
+<ul class="desvantagens">
+  <li>🌥️ Depende da luz solar (clima)</li>
+  <li>💸 Custo inicial elevado</li>
+  <li>🏠 Necessita de espaço para instalação</li>
+</ul>
+</div>
+</div>
+
+  <h3>🇧🇷 Energia Solar no Brasil</h3>
+
+<img src="/assets/img/instalando-painel-solar.jpg" alt="Energia solar no Brasil">
+
+<p>
+  O Brasil é um dos países com <strong>maior potencial para geração de energia solar no mundo</strong>. 
+  Isso acontece porque o país recebe altos níveis de radiação solar durante praticamente todo o ano.
+</p>
+
+<p>
+  A região <strong>Nordeste</strong> se destaca, pois possui clima mais seco e menos nuvens, o que favorece a geração constante de energia.
+  Estados como Bahia, Ceará e Pernambuco são grandes produtores.
+</p>
+
+<div class="dados-brasil">
+  <p>☀️ Alta incidência solar na maior parte do território</p>
+  <p>📈 Crescimento rápido do uso de energia solar nos últimos anos</p>
+  <p>🏠 Muito usada em residências (energia solar distribuída)</p>
+  <p>🌱 Alternativa sustentável às hidrelétricas</p>
+</div>
+
+<h4>📊 Por que a energia solar está crescendo no Brasil?</h4>
+
+<ul class="motivos">
+  <li>💡 Aumento no preço da energia elétrica</li>
+  <li>🏡 Facilidade de instalação em casas e empresas</li>
+  <li>🌍 Maior preocupação com o meio ambiente</li>
+  <li>⚙️ Avanço da tecnologia (painéis mais eficientes)</li>
+</ul>
+
+<p class="destaque">
+  👉 Hoje, a energia solar já é uma das fontes que mais cresce no Brasil.
+</p>
+  <h3>💡 Curiosidades</h3>
+  <ul>
+    <li>☀️ O Sol gera mais energia em 1 hora do que o mundo consome em um ano</li>
+    <li>🔋 Painéis duram mais de 25 anos</li>
+    <li>🚀 Satélites usam energia solar</li>
+  </ul>
+
+  <h3>🎥 Vídeo</h3>
+  <div class="video">
+    <iframe src="https://www.youtube.com/embed/xKxrkht7CpY" 
+    title="Energia Solar" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+</section>
       <div class="dica">
         💡 A energia solar vem do sol e é limpa.
       </div>
