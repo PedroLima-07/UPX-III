@@ -1,166 +1,421 @@
 /* =========================================
-   CONTEÚDO GERAL E TIPOGRAFIA
-========================================= */
-.conteudo h2 {
-  color: #ffffff;
-  font-size: 32px;
-  border-bottom: 2px solid rgba(255, 215, 0, 0.3); /* Linha sutil amarela (cor do seu menu ativo) */
-  padding-bottom: 12px;
-  margin-bottom: 30px;
-}
-
-.conteudo h3 {
-  color: #ffd700; /* Destaque nas seções importantes */
-  font-size: 24px;
-  margin-top: 40px;
-  margin-bottom: 15px;
-}
-
-.conteudo h4 {
-  color: #ffffff;
-  font-size: 20px;
-  margin-bottom: 15px;
-}
-
-.conteudo h5 {
-  color: #f1f5f9;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.conteudo p {
-  color: #cbd5e1; /* Cor suave para leitura (evita vista cansada) */
-  font-size: 17px;
-  line-height: 1.7; /* Maior espaçamento entre linhas */
-  margin-bottom: 16px;
-}
-
-.conteudo ul,
-.conteudo ol {
-  color: #cbd5e1;
-  font-size: 17px;
-  line-height: 1.7;
-  margin-bottom: 20px;
-  padding-left: 20px;
-}
-
-.conteudo li {
-  margin-bottom: 10px;
-}
-
-/* =========================================
-   IMAGENS E VÍDEO
-========================================= */
-.conteudo img {
-  width: 100%;
-  max-width: 350px;
-  border-radius: 12px; /* Borda mais suave */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Sombra mais difusa e moderna */
-  object-fit: cover;
-}
-
-/* Deixa o iframe do Youtube com proporção perfeita de vídeo (16:9) */
-.conteudo .video {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  margin-top: 25px;
-}
-
-.conteudo .video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* =========================================
-   LAYOUT E ALINHAMENTO
+   LAYOUT PRINCIPAL (Lado a Lado)
 ========================================= */
 .conteudo .divisao {
-  display: flex;
-  align-items: center;
-  gap: 40px; /* Maior respiro entre texto e imagem */
+  display: flex; /* Isso faz o texto e a imagem ficarem lado a lado */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 40px; /* Espaço entre o texto e a imagem */
   margin-bottom: 40px;
 }
 
 .conteudo .texto {
-  flex: 1;
+  flex: 1; /* Ocupa o espaço proporcional na esquerda/direita */
 }
 
 .conteudo .foto {
-  flex: 1;
+  flex: 1; /* Ocupa o espaço proporcional na esquerda/direita */
   display: flex;
   justify-content: center;
 }
 
 /* =========================================
-   CARDS E BLOCOS DE INFORMAÇÃO
+   CONTEÚDO GERAL E TIPOGRAFIA
 ========================================= */
-.conteudo .bloco-tipo {
-  background: rgba(15, 23, 42, 0.6); /* Fundo sutilmente translúcido */
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Borda quase invisível para acabamento */
-  padding: 20px 25px;
-  border-radius: 12px;
-  margin-top: 15px;
-  margin-bottom: 20px;
+.conteudo h2,
+.conteudo h3,
+.conteudo h4,
+.conteudo h5 {
+  color: #ffffff;
 }
 
-.diferenca {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  background: rgba(255, 255, 255, 0.03); /* Leve destaque de fundo */
-  padding: 12px 20px;
-  border-radius: 8px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+.conteudo h2 {
+  font-size: 32px;
+  border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+  padding-bottom: 12px;
+  margin-bottom: 30px;
 }
 
-.diferenca p {
-  margin-bottom: 0; /* Remove margem do p para centralizar perfeitamente no box */
+.conteudo h3 {
+  font-size: 24px;
+  margin-top: 40px;
+  margin-bottom: 15px;
 }
 
-/* Container de Vantagens e Desvantagens */
-.separacao {
-  display: flex;
-  gap: 25px;
-  margin-top: 30px;
-  margin-bottom: 40px;
-}
-
-/* Card individual de Prós e Contras */
-.Tipos {
-  flex: 1;
-  background: #0f172a;
-  border-top: 4px solid #334155; /* Borda no topo para design de card */
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-}
-
-/* Detalhe de UI: Borda verde para vantagens e vermelha para desvantagens */
-.separacao .Tipos:first-child {
-  border-top-color: #22c55e;
-}
-.separacao .Tipos:last-child {
-  border-top-color: #ef4444;
+.conteudo p {
+  color: #cbd5e1;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 16px;
 }
 
 /* =========================================
-   RESPONSIVIDADE (Telas menores)
+   LISTAS (Sem bolinhas e alinhadas)
 ========================================= */
+.conteudo ul {
+  list-style: none;
+  padding-left: 0;
+  color: #cbd5e1;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.conteudo li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   IMAGENS
+========================================= */
+.conteudo img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+
+/* =========================================
+   ESTILIZAÇÃO DOS PASSOS (Modo Clean)
+========================================= */
+.passos-fluxo {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.passo-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 8px 0;
+  transition: transform 0.2s;
+}
+
+.passo-item:hover {
+  transform: translateX(10px);
+}
+
+.passo-numero {
+  background: #ffd700;
+  color: #000;
+  font-weight: bold;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.passo-texto {
+  color: #cbd5e1;
+  font-size: 16px;
+}
+/* =========================================
+   CARDS DE TIPOS (Lado a Lado) - Aumentado em 15%
+========================================= */
+.container-cards {
+  display: flex;
+  gap: 24px; /* Aumentado de 20px para 24px */
+  margin-top: 24px; /* Aumentado de 20px para 24px */
+}
+
+.card-tipo {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px; /* Aumentado de 20px para 24px */
+  border-radius: 14px; /* Aumentado de 12px para 14px */
+  transition:
+    transform 0.3s,
+    border-color 0.3s;
+}
+
+.card-tipo:hover {
+  transform: translateY(-6px);
+  border-color: #ffd700;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.card-tipo h4 {
+  font-size: 23px; /* Forçado 15% maior que o h4 padrão de 20px */
+  margin-top: 0;
+  margin-bottom: 18px; /* Aumentado de 15px para 18px */
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Aumentado de 10px para 12px */
+}
+
+.card-tipo p {
+  font-size: 17px; /* Aumentado de 15px para 17px */
+  color: #cbd5e1;
+  margin-bottom: 18px; /* Aumentado de 15px para 18px */
+  line-height: 1.6; /* Ajuda o texto maior a respirar */
+}
+
+.card-tipo ul li {
+  font-size: 16px; /* Aumentado de 14px para 16px */
+  color: #94a3b8;
+  margin-bottom: 10px; /* Adicionado um respiro maior entre os itens da lista */
+}
+/* =========================================
+   CARDS VANTAGENS E DESVANTAGENS (Ajuste Pixel Perfect)
+========================================= */
+
+.title-x {
+  padding-bottom: 20px;
+}
+
+.cards-vantagens,
+.cards-desvantagens {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+/* VANTAGENS (5 cards) - Grade de 3 por linha */
+.cards-vantagens .card {
+  width: calc(33.333% - 16px);
+  min-width: 260px;
+  background: #1e293b;
+  padding: 35px; /* Aumentado para 35px: mais respiro */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+/* DESVANTAGENS (4 cards) - Grade de 2 por linha (Simetria perfeita 2x2) */
+.cards-desvantagens .card {
+  width: calc(50% - 12px);
+  min-width: 260px;
+  background: #1e293b;
+  padding: 35px; /* Aumentado para 35px: mais respiro */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.cards-vantagens .card:hover,
+.cards-desvantagens .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.cards-vantagens .card h4,
+.cards-desvantagens .card h4 {
+  font-size: 20px;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+/* Texto Secundário: Maior contraste e legibilidade */
+.cards-vantagens .card p,
+.cards-desvantagens .card p {
+  font-size: 17px; /* Aumentado de 16px para 17px */
+  color: #f8fafc; /* Cor super clara, quase branca */
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+/* Responsividade mantida */
 @media (max-width: 900px) {
-  .conteudo .divisao,
-  .separacao {
-    flex-direction: column; /* Coloca um embaixo do outro no celular/tablet */
-    gap: 25px;
+  .cards-vantagens .card,
+  .cards-desvantagens .card {
+    width: calc(50% - 12px);
   }
-  .conteudo img {
-    max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .cards-vantagens .card,
+  .cards-desvantagens .card {
+    width: 100%;
   }
+}
+/* =========================================
+   SECÇÃO: BRASIL (AJUSTES FINOS)
+========================================= */
+
+/* Destaque "2ª maior fonte" renovado */
+.stats-brasil {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 40px 0;
+  background: none; /* Removeu o fundo escuro */
+  border: none; /* Removeu a borda esquerda */
+  padding: 0;
+}
+
+.stats-numero {
+  background: #ffd700; /* Bola amarela */
+  color: #000;
+  font-size: 32px;
+  font-weight: bold;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.stats-texto {
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* =========================================
+   AJUSTE DE IMAGEM CENTRAL E LEGENDA
+========================================= */
+.bloco-imagem-legenda {
+  margin: 50px 0; /* Aumentei o espaço em cima e embaixo do bloco */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Garante que tudo fique centralizado */
+  text-align: center;
+}
+
+.bloco-imagem-legenda img {
+  width: 100%;
+  max-width: 850px; /* Aumentado para ocupar bem o centro da tela */
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Sombra mais profunda para destaque */
+  margin-bottom: 15px; /* Espaço para o subtítulo logo abaixo */
+}
+
+.legenda {
+  display: block;
+  font-size: 18px; /* Aumentado de 14px para 18px (legibilidade total) */
+  color: #94a3b8;
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 700px; /* Evita que a legenda fique larga demais em telas grandes */
+}
+
+/* Subtítulos dos blocos de texto (Cinturão Solar, Geração Distribuída) */
+.titulo-bloco {
+  font-size: 26px !important; /* Tamanho proporcional e de destaque */
+  color: #ffffff;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Título "Por que o crescimento é tão rápido?" aumentado em 20% */
+.titulo-crescimento {
+  font-size: 28px !important;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  color: #ffffff;
+}
+
+/* =========================================
+   FATORES DE CRESCIMENTO (Ajuste Pixel Perfect)
+========================================= */
+
+.fatores-crescimento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px; /* Aumentei um pouco o gap para combinar com o resto */
+  margin-top: 30px;
+}
+
+.fator-item {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 30px; /* Aumentado de 20px para 30px para dar respiro */
+  border-radius: 12px; /* Arredondado igual os cards de vantagem */
+  display: flex;
+  gap: 15px;
+}
+
+.fator-item span {
+  font-size: 24px;
+}
+
+.fator-item h5 {
+  margin: 0 0 8px 0;
+  color: #ffffff;
+  font-size: 19px; /* Um pontinho maior para destacar o título */
+  font-weight: bold;
+}
+
+.fator-item p {
+  font-size: 17px; /* Aumentado para 17px */
+  color: #f8fafc; /* Cor com alto contraste */
+  margin: 0;
+  line-height: 1.6; /* Melhor distanciamento das linhas */
+}
+
+@media (max-width: 768px) {
+  .fatores-crescimento {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   SECÇÃO: VÍDEO COMPLEMENTAR
+========================================= */
+.secao-video {
+  margin-top: 60px;
+  margin-bottom: 30px;
+  padding: 35px;
+}
+
+.cabecalho-video {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.cabecalho-video h3 {
+  margin: 0 0 10px 0;
+  font-size: 28px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.cabecalho-video p {
+  color: #94a3b8;
+  font-size: 17px;
+  margin: 0;
+}
+
+/* O truque mestre para o YouTube ficar responsivo */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* Proporção exata de 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); /* Sombra interna na moldura do vídeo */
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
