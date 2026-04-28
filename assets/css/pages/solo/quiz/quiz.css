@@ -57,7 +57,9 @@ body {
   border-radius: 15px;
   cursor: pointer;
 
-  transition: transform 0.1s ease, filter 0.1s ease;
+  transition:
+    transform 0.1s ease,
+    filter 0.1s ease;
 }
 
 /* hover */
@@ -119,7 +121,9 @@ body {
 
   align-self: center; /* 🔥 centraliza dentro do flex */
 
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
 }
 
 /* hover */
@@ -131,4 +135,13 @@ body {
 .btn-proximo:active {
   transform: scale(0.95);
   box-shadow: 0 0 0 #b89b00;
+}
+/*Botão voltar*/
+.voltar {
+  position: absolute;
+  left: 20px;
+  top: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
