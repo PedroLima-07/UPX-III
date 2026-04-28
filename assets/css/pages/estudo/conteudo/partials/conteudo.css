@@ -79,6 +79,38 @@
 }
 
 /* =========================================
+   CONTEUDO DA INTRODUÇÃO
+========================================= */
+/* Container principal da Introdução */
+/* Container da Introdução seguindo o padrão das outras seções */
+.intro-enerquest {
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra bem suave e discreta */
+}
+
+/* Estilo do título */
+.intro-enerquest h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* Estilo dos parágrafos padronizado */
+.texto-intro p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ffffff; /* Cor de texto padrão para leitura agradável */
+  margin-bottom: 15px;
+}
+
+/* Destaca as palavras em negrito de forma sutil */
+.texto-intro strong {
+  color: #ffffff;
+}
+
+/* =========================================
    ESTILIZAÇÃO DOS PASSOS (Modo Clean)
 ========================================= */
 .passos-fluxo {
