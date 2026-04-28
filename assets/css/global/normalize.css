@@ -5,4 +5,11 @@
 }
 body {
   background: radial-gradient(circle, #1e90ff 0%, #0a0f2c 100%);
+  /* A mágica para deixar fixo acontece nestas 3 linhas: */
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  /* Garante que o fundo ocupe sempre a altura total da tela */
+  min-height: 100vh;
 }
