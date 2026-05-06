@@ -2,161 +2,88 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 125px;
-
-  /*Serve para descer os cards um pouco para baixo e não encostar na borda*/
-  margin-top: 40px;
-  margin-bottom: 45px;
+  gap: 50px; /* Reduzi um pouco o gap para caber melhor ao crescer */
+  margin: 60px 0;
 }
-/*cards*/
-.card1 {
+
+/* Base comum para todos os cards */
+.card {
   background-color: #10224a;
   border: 2px solid #ffcc00;
-  border-radius: 45px;
-
-  width: 293px;
-  height: 383px;
-
-  /*serve para organizar os elementos dentro do card em coluna*/
+  border-radius: 35px; /* Bordas um pouco menos arredondadas para o tamanho novo */
+  width: 250px; /* Reduzido de 293px */
+  height: 360px; /* Reduzido de 420px */
   display: flex;
   flex-direction: column;
+  position: relative;
+
+  filter: blur(2px);
+  opacity: 0.8; /* Um pouco mais apagado para destacar mais o ativo */
+  transform: scale(0.9);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.card2 {
-  background-color: #10224a;
-  border: 2px solid #ffcc00;
-  border-radius: 45px;
 
-  width: 293px;
-  height: 383px;
-
-  /*serve para organizar os elementos dentro do card em coluna*/
-  display: flex;
-  flex-direction: column;
+.card.active,
+.card:hover {
+  filter: blur(0);
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 204, 0, 0.4);
 }
-.card3 {
-  background-color: #10224a;
-  border: 2px solid #ffcc00;
-  border-radius: 45px;
 
-  width: 293px;
-  height: 383px;
-
-  /*serve para organizar os elementos dentro do card em coluna*/
-  display: flex;
-  flex-direction: column;
-}
-/*regulando a margin das imagens*/
-.card1-img {
+/* Estilização interna unificada */
+.card-img {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 140px;
 }
-.card2-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 140px;
-}
-.card3-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 140px;
+.card-img img {
+  width: 100%;
+  object-fit: contain;
 }
 
-/*regulando o tamanho das imagens*/
-.card1-img img {
-  width: 90%;
-  height: 90%;
-  object-fit: cover;
-  /*o object-fit serve para que a imagem se ajuste ao container sem distorcer a proporção*/
-}
-.card2-img img {
-  width: 90%;
-  height: 90%;
-  object-fit: cover;
-}
-.card3-img img {
-  width: 90%;
-  height: 90%;
-  object-fit: cover;
-}
-/*titulo dos cards */
-
-.card1-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  margin-top: -20px;
-
-  font-size: 28px;
-  font-weight: bold;
-  color: #eacd5a;
-}
-.card2-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  margin-top: -20px;
-
-  font-size: 28px;
-  font-weight: bold;
-  color: #eacd5a;
-}
-.card3-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  margin-top: -20px;
-
-  font-size: 28px;
-  font-weight: bold;
-  color: #eacd5a;
-}
-/*descrição dos cards*/
-.card1-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  margin-top: 15px;
-}
-.card2-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  margin-top: 15px;
-}
-.card3-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  margin-top: 15px;
-}
-.card1-text p {
-  width: 90%;
+.card-title {
   text-align: center;
-
-  color: white;
   font-size: 24px;
+  color: #eacd5a;
+  font-weight: bold;
 }
-.card2-text p {
-  width: 90%;
-  text-align: center;
 
+.card-text p {
   color: white;
-  font-size: 24px;
+  text-align: center;
+  font-size: 18px;
+  padding: 0 20px;
 }
-.card3-text p {
-  width: 90%;
-  text-align: center;
 
-  color: white;
-  font-size: 24px;
+/* MENSAGEM QUE APARECE EMBAIXO */
+.hover-message {
+  opacity: 0;
+  text-align: center;
+  color: #ffcc00;
+  font-weight: bold;
+  font-size: 14px;
+  transition: 0.3s;
+  margin-top: 5px;
+}
+
+.card:hover .hover-message {
+  opacity: 1;
+}
+
+/* Texto guia no rodapé */
+.bottom-guide {
+  margin-top: 50px;
+  text-align: center;
+  color: #fff;
+  font-size: 1.2rem; /* Aumentado para destaque */
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  /* Cria uma linha sutil em cima para separar dos cards */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  width: 60%; /* Limita a largura para centralizar melhor o texto */
+  margin-left: auto;
+  margin-right: auto;
 }

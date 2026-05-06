@@ -9,21 +9,83 @@
     <a href="../modo.html" class="voltar">⬅ VOLTAR</a>
   </header>
   <body>
+    <div id="tutorial-overlay" class="tutorial-overlay">
+      <div class="tutorial-modal">
+        <div class="tutorial-content" id="tutorial-content">
+          <div class="tutorial-text">
+            <h2 id="tut-titulo">MODO SOLO</h2>
+            <p id="tut-texto">Carregando tutorial...</p>
+          </div>
+          <div class="tutorial-image" id="tut-imagem"></div>
+        </div>
+
+        <div class="tutorial-controls" id="tutorial-controls">
+          <div class="setas">
+            <button id="btn-prev" class="btn-seta">❮</button>
+            <button id="btn-next" class="btn-seta">❯</button>
+          </div>
+          <a href="#" id="btn-pular" class="pular-tutorial">Pular Tutorial</a>
+        </div>
+
+        <button id="btn-comecar" class="btn-comecar" style="display: none">
+          COMEÇAR O QUIZ
+        </button>
+      </div>
+    </div>
     <div class="game">
-      <div id="texto-pergunta" class="pergunta">Carregando pergunta...</div>
-
-      <div class="respostas" id="area-respostas">
-        <button class="btn-resposta"></button>
-        <button class="btn-resposta"></button>
-        <button class="btn-resposta"></button>
-        <button class="btn-resposta"></button>
+      <div class="hud-container">
+        <div class="score-box">
+          <span>SCORE:</span>
+          <span id="score-valor">0</span>
+        </div>
+        <div class="vidas-box" id="vidas-box">
+          <img src="/assets/img/raio-ativo.png" class="vida" alt="Vida" />
+          <img src="/assets/img/raio-ativo.png" class="vida" alt="Vida" />
+          <img src="/assets/img/raio-ativo.png" class="vida" alt="Vida" />
+        </div>
+      </div>
+      <div class="progresso-wrapper">
+        <div class="progresso-container">
+          <div id="barra-progresso" class="barra-progresso"></div>
+        </div>
+        <div id="contador-pergunta" class="contador-pergunta">1/10</div>
       </div>
 
-      <div id="feedback" class="feedback">
-        <p id="mensagem"></p>
+      <div class="pergunta-container">
+        <div id="texto-pergunta" class="pergunta-nova">
+          Carregando pergunta...
+        </div>
       </div>
 
-      <button id="btn-proximo" class="btn-proximo">PRÓXIMO</button>
+      <div class="respostas-lista" id="area-respostas">
+        <button class="btn-resposta-novo">
+          <span class="letra">A</span>
+          <span class="texto-opcao">Carregando...</span>
+        </button>
+        <button class="btn-resposta-novo">
+          <span class="letra">B</span>
+          <span class="texto-opcao">Carregando...</span>
+        </button>
+        <button class="btn-resposta-novo">
+          <span class="letra">C</span>
+          <span class="texto-opcao">Carregando...</span>
+        </button>
+        <button class="btn-resposta-novo">
+          <span class="letra">D</span>
+          <span class="texto-opcao">Carregando...</span>
+        </button>
+      </div>
+
+      <div id="feedback-overlay" class="feedback-overlay">
+        <div id="feedback-modal" class="feedback-modal">
+          <div id="feedback-icon" class="feedback-icon">✅</div>
+          <h2 id="feedback-titulo">CORRETO!</h2>
+          <p id="feedback-texto">Você está progredindo bem!</p>
+          <button id="btn-feedback-proximo" class="btn-feedback-proximo">
+            PRÓXIMO
+          </button>
+        </div>
+      </div>
     </div>
 
     <script src="/assets/js/pages/solo/Banco-perguntas.js"></script>

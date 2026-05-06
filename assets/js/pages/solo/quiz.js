@@ -1,96 +1,237 @@
-// 2. Variáveis de controle do jogo
+// ===============================
+// 1. LÓGICA DO TUTORIAL INICIAL
+// ===============================
+const passosTutorial = [
+  {
+    titulo: "MODO SOLO",
+    texto:
+      "O ponto de partida! Aqui você aprende a teoria sobre energia renovável antes de enfrentar os desafios.",
+    imagem: "📚",
+  },
+  {
+    titulo: "COMO JOGAR",
+    texto:
+      "Acerte para ganhar pontos! Faça combos (acertos seguidos) para ganhar pontos extras (+10, +12, +14).",
+    imagem: "⚡",
+  },
+  {
+    titulo: "CUIDADO COM AS VIDAS",
+    texto:
+      "Você tem 3 baterias ⚡. Se errar, perde uma. Se zerar, é Game Over. Boa sorte, Operador!",
+    imagem: "🚀",
+  },
+];
+
+let passoAtual = 0;
+
+const overlayTutorial = document.getElementById("tutorial-overlay");
+const tutTitulo = document.getElementById("tut-titulo");
+const tutTexto = document.getElementById("tut-texto");
+const tutImagem = document.getElementById("tut-imagem");
+const btnPrev = document.getElementById("btn-prev");
+const btnNext = document.getElementById("btn-next");
+const btnPular = document.getElementById("btn-pular");
+const tutorialControls = document.getElementById("tutorial-controls");
+const btnComecar = document.getElementById("btn-comecar");
+
+function atualizarTutorial() {
+  const passo = passosTutorial[passoAtual];
+  tutTitulo.textContent = passo.titulo;
+  tutTexto.textContent = passo.texto;
+  tutImagem.textContent = passo.imagem;
+
+  btnPrev.disabled = passoAtual === 0;
+
+  if (passoAtual === passosTutorial.length - 1) {
+    tutorialControls.style.display = "none";
+    btnComecar.style.display = "block";
+  } else {
+    tutorialControls.style.display = "flex";
+    btnComecar.style.display = "none";
+  }
+}
+
+btnNext.addEventListener("click", () => {
+  if (passoAtual < passosTutorial.length - 1) {
+    passoAtual++;
+    atualizarTutorial();
+  }
+});
+btnPrev.addEventListener("click", () => {
+  if (passoAtual > 0) {
+    passoAtual--;
+    atualizarTutorial();
+  }
+});
+btnPular.addEventListener("click", (e) => {
+  e.preventDefault();
+  passoAtual = passosTutorial.length - 1;
+  atualizarTutorial();
+});
+btnComecar.addEventListener("click", () => {
+  overlayTutorial.style.display = "none";
+  carregarPergunta();
+});
+
+atualizarTutorial();
+
+// ===============================
+// 2. LÓGICA PRINCIPAL DO QUIZ E HUD
+// ===============================
+
 let indicePerguntaAtual = 0;
 let pontos = 0;
+let vidas = 3;
+let acertosSeguidos = 0; // Para controlar o Combo
 
-// 3. Pegando os elementos da tela
 const elementoPergunta = document.getElementById("texto-pergunta");
-const botoesResposta = document.querySelectorAll(".btn-resposta");
-const feedback = document.getElementById("feedback");
-const mensagem = document.getElementById("mensagem");
-const btnProximo = document.getElementById("btn-proximo");
-const btnSair = document.getElementById("btn-sair"); // 🔥 NOVO: Pegando o botão de sair
+const botoesResposta = document.querySelectorAll(".btn-resposta-novo");
+const barraProgresso = document.getElementById("barra-progresso");
+const contadorPergunta = document.getElementById("contador-pergunta");
+const btnSair = document.getElementById("btn-sair");
 
-// 🔥 NOVO: Lógica de clique do botão sair
+// Elementos do HUD
+const scoreValor = document.getElementById("score-valor");
+const iconesVidas = document.querySelectorAll(".vidas-box .vida");
+
+// Elementos do Modal de Feedback Neon
+const feedbackOverlay = document.getElementById("feedback-overlay");
+const feedbackModal = document.getElementById("feedback-modal");
+const feedbackIcon = document.getElementById("feedback-icon");
+const feedbackTitulo = document.getElementById("feedback-titulo");
+const feedbackTexto = document.getElementById("feedback-texto");
+const btnFeedbackProximo = document.getElementById("btn-feedback-proximo");
+
 if (btnSair) {
   btnSair.addEventListener("click", () => {
-    // Mostra um alerta perguntando se o jogador tem certeza
-    const confirmarSaida = confirm(
-      "Tem certeza que deseja sair? Seu progresso atual será perdido.",
-    );
-
-    if (confirmarSaida) {
-      // Redireciona para a tela de modos (ajuste o caminho se necessário)
+    if (
+      confirm("Tem certeza que deseja sair? Seu progresso atual será perdido.")
+    ) {
       window.location.href = "../modo.html";
     }
   });
 }
 
-// 4. Função para carregar a pergunta na tela
-function carregarPergunta() {
-  const perguntaAtual = bancoDePerguntas[indicePerguntaAtual];
-
-  // Muda o texto da pergunta
-  elementoPergunta.textContent = perguntaAtual.pergunta;
-
-  // Muda o texto de cada botão e reativa eles
-  botoesResposta.forEach((botao, index) => {
-    botao.textContent = perguntaAtual.opcoes[index];
-    botao.disabled = false; // Garante que o botão pode ser clicado novamente
-    botao.style.opacity = "1";
-  });
-
-  // Esconde o feedback e o botão "Próximo"
-  feedback.style.display = "none";
-  btnProximo.style.display = "none";
-  feedback.classList.remove("correto", "errado");
+function atualizarProgresso() {
+  const totalPerguntas = bancoDePerguntas.length;
+  const perguntaNumero = indicePerguntaAtual + 1;
+  const porcentagem = (perguntaNumero / totalPerguntas) * 100;
+  barraProgresso.style.width = porcentagem + "%";
+  contadorPergunta.textContent = `${perguntaNumero}/${totalPerguntas}`;
 }
 
-// 5. Função para verificar o clique na resposta
+function atualizarVidasUI() {
+  const iconesVidas = document.querySelectorAll(".vidas-box .vida");
+  iconesVidas.forEach((icone, index) => {
+    if (index < vidas) {
+      // Vida Ativa
+      icone.classList.remove("perdida");
+      // Opcional: Se quiseres trocar o ficheiro da imagem em vez de usar filtro CSS:
+      // icone.src = "/assets/img/raio-ativo.svg";
+    } else {
+      // Vida Perdida
+      icone.classList.add("perdida");
+      // Opcional: Se quiseres trocar o ficheiro da imagem:
+      // icone.src = "/assets/img/raio-inativo.svg";
+    }
+  });
+}
+
+function carregarPergunta() {
+  const perguntaAtual = bancoDePerguntas[indicePerguntaAtual];
+  atualizarProgresso();
+
+  elementoPergunta.textContent = perguntaAtual.pergunta;
+
+  botoesResposta.forEach((botao, index) => {
+    const spanTexto = botao.querySelector(".texto-opcao");
+    spanTexto.textContent = perguntaAtual.opcoes[index];
+
+    botao.disabled = false;
+    botao.style.opacity = "1";
+    botao.style.borderColor = "#2a4b8d";
+    botao.style.backgroundColor = "rgba(12, 31, 74, 0.3)";
+  });
+
+  feedbackOverlay.style.display = "none";
+}
+
+// Verifica a resposta
 botoesResposta.forEach((botao) => {
   botao.addEventListener("click", (evento) => {
-    const respostaEscolhida = evento.target.textContent;
+    const botaoClicado = evento.currentTarget;
+    const respostaEscolhida =
+      botaoClicado.querySelector(".texto-opcao").textContent;
     const respostaCerta = bancoDePerguntas[indicePerguntaAtual].respostaCorreta;
 
-    // Remove classes antigas
-    feedback.classList.remove("correto", "errado");
+    feedbackModal.classList.remove("correto", "errado");
 
     if (respostaEscolhida === respostaCerta) {
-      feedback.classList.add("correto");
-      mensagem.textContent = "✅ Resposta correta!";
-      pontos += 100; // Exemplo: ganha 100 pontos por acerto
+      // --- SISTEMA DE COMBO ---
+      acertosSeguidos++;
+      let pontosGanhos = 10;
+      if (acertosSeguidos === 2) pontosGanhos = 12;
+      if (acertosSeguidos >= 3) pontosGanhos = 14;
+
+      pontos += pontosGanhos;
+      scoreValor.textContent = pontos; // Atualiza a tela
+
+      feedbackModal.classList.add("correto");
+      feedbackIcon.textContent = "✅";
+      feedbackTitulo.textContent = "CORRETO!";
+
+      // Mostra o combo no pop-up!
+      if (acertosSeguidos >= 2) {
+        feedbackTexto.textContent = `Combo x${acertosSeguidos}! Você ganhou +${pontosGanhos} pontos!`;
+      } else {
+        feedbackTexto.textContent = `Muito bem! Você ganhou +${pontosGanhos} pontos.`;
+      }
+
+      botaoClicado.style.borderColor = "#00ff88";
+      botaoClicado.style.backgroundColor = "rgba(0, 255, 136, 0.1)";
     } else {
-      feedback.classList.add("errado");
-      mensagem.textContent =
-        "❌ Resposta incorreta! A certa era: " + respostaCerta;
+      // --- ERROU ---
+      acertosSeguidos = 0; // Zera o combo
+      vidas--; // Perde uma vida
+      atualizarVidasUI(); // Apaga o raio na tela
+
+      feedbackModal.classList.add("errado");
+      feedbackIcon.textContent = "❌";
+
+      if (vidas > 0) {
+        feedbackTitulo.textContent = "INCORRETO!";
+        feedbackTexto.textContent = `A resposta era: ${respostaCerta}. Você perdeu 1 vida.`;
+      } else {
+        feedbackTitulo.textContent = "FIM DE JOGO";
+        feedbackTexto.textContent = `Sua energia esgotou. A resposta era: ${respostaCerta}.`;
+      }
+
+      botaoClicado.style.borderColor = "#ff4d4d";
+      botaoClicado.style.backgroundColor = "rgba(255, 77, 77, 0.1)";
     }
 
-    feedback.style.display = "block";
-    btnProximo.style.display = "block";
-
-    // Bloqueia os botões para o usuário não clicar duas vezes
-    botoesResposta.forEach((b) => {
-      b.disabled = true;
-      if (b.textContent !== respostaCerta) b.style.opacity = "0.5";
-    });
+    feedbackOverlay.style.display = "flex";
+    botoesResposta.forEach((b) => (b.disabled = true));
   });
 });
 
-// 6. Função para passar para a próxima pergunta
-btnProximo.addEventListener("click", () => {
-  indicePerguntaAtual++; // Vai para a próxima
+// Botão PRÓXIMO dentro do Pop-up Neon
+btnFeedbackProximo.addEventListener("click", () => {
+  // Se as vidas acabaram, vai pro resultado imediatamente
+  if (vidas <= 0) {
+    localStorage.setItem("pontos", pontos);
+    localStorage.setItem("vidas", vidas);
+    window.location.href = "resultado.html";
+    return;
+  }
 
-  // Verifica se ainda tem perguntas
+  indicePerguntaAtual++;
   if (indicePerguntaAtual < bancoDePerguntas.length) {
     carregarPergunta();
   } else {
-    // 🔥 MODIFICADO: Fim do quiz! Salva os pontos e redireciona para a tela final
+    // Fim do quiz com sucesso!
     localStorage.setItem("pontos", pontos);
-    localStorage.setItem("vidas", 3); // Salvando 3 vidas como padrão para a tela de resultado
-
-    // Redireciona para o arquivo de resultado
+    localStorage.setItem("vidas", vidas);
     window.location.href = "resultado.html";
   }
 });
-
-// Inicia o jogo carregando a primeira pergunta
-carregarPergunta();

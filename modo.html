@@ -3,82 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>modo</title>
-    <link rel="stylesheet" href="./assets/css/pages/modo/modo.css" />
+    <title>EnerQuest - Seleção de Modo</title>
+    <link rel="stylesheet" href="/assets/css/pages/modo/modo.css" />
   </head>
   <body>
+    <div id="tutorial-overlay" class="tutorial-overlay">
+      <div class="tutorial-card">
+        <div id="tutorial-content" class="tutorial-container-split"></div>
+
+        <div class="tutorial-nav">
+          <button class="nav-arrow" id="btn-prev" onclick="prevStep()">
+            &#10094;
+          </button>
+          <button class="nav-arrow" id="btn-next" onclick="nextStep()">
+            &#10095;
+          </button>
+        </div>
+
+        <button class="close-tutorial" onclick="closeTutorial()">
+          Pular Tutorial
+        </button>
+      </div>
+    </div>
+
     <div class="logo">
       <img src="./assets/img/logo2UPX.png" alt="logo" />
     </div>
+
     <div class="subtitle">
       <h2>Selecione o seu modo de jogo</h2>
     </div>
+
     <div class="container_card">
-      <div class="card1">
-        <div class="card1-img">
-          <img
-            src="./assets/img/Livro mágico e brilhante .png"
-            alt="livro mágico e brilhante"
-          />
+      <div class="card">
+        <div class="card-img">
+          <img src="./assets/img/Livro mágico e brilhante .png" alt="Estudo" />
         </div>
-        <div class="card1-title">
-          <h3>Modo Estudo</h3>
+        <div class="card-title"><h3>Modo Estudo</h3></div>
+        <div class="card-text">
+          <p>Aprenda os conceitos básicos. Sem pressa, sem pontos.</p>
         </div>
-        <div class="card1-text">
-          <p>
-            Aprenda os conceitos básicos. Sem pressa, sem pontos. Comece sua
-            jornada.
-          </p>
-        </div>
-        <div class="card1-button">
-          <a href="./estudo/modo-estudo.html">
-            <button>Estudar</button>
-          </a>
+        <span class="hover-message">Comece sua jornada aqui</span>
+        <div class="card-button">
+          <a href="./estudo/modo-estudo.html"><button>Estudar</button></a>
         </div>
       </div>
-      <div class="card2">
-        <div class="card2-img">
-          <img
-            src="./assets/img/Ícone de usuário iluminado .png"
-            alt="ícone de usuário iluminado"
-          />
+
+      <div class="card">
+        <div class="card-img">
+          <img src="./assets/img/Ícone de usuário iluminado .png" alt="Solo" />
         </div>
-        <div class="card2-title">
-          <h3>Modo Solo</h3>
+        <div class="card-title"><h3>Modo Solo</h3></div>
+        <div class="card-text">
+          <p>Enfrente o Quiz e acumule pontos e conquistas.</p>
         </div>
-        <div class="card2-text">
-          <p>
-            Enfrente o Quiz, complete desafios e acumule pontos e conquistas.
-          </p>
-        </div>
-        <div class="card2-button">
-          <a href="./solo/quiz.html">
-            <button>Jogar</button>
-          </a>
+        <span class="hover-message">Teste seus conhecimentos</span>
+        <div class="card-button">
+          <a href="./solo/quiz.html"><button>Jogar</button></a>
         </div>
       </div>
-      <div class="card3">
-        <div class="card3-img">
+
+      <div class="card">
+        <div class="card-img">
           <img
             src="./assets/img/Ícones humanos estilizados e brilhantes .png"
-            alt="icones humanos estilizados e brilhantes"
+            alt="Multiplayer"
           />
         </div>
-        <div class="card3-title">
-          <h3>Modo multiplayer</h3>
+        <div class="card-title"><h3>Modo Multiplayer</h3></div>
+        <div class="card-text">
+          <p>Desafie seus amigos e veja quem sabe mais.</p>
         </div>
-        <div class="card3-text">
-          <p>
-            Desafie seus companheiros e desafie seus amigos para ver quem sabe
-            mais.
-          </p>
-        </div>
-        <div class="card3-button">
-          <a href="">
-            <button>Desafie</button>
-          </a>
+        <span class="hover-message">Prove seu nível localmente</span>
+        <div class="card-button">
+          <a href="#"><button>Desafiar</button></a>
         </div>
       </div>
     </div>
+
+    <p class="bottom-guide">
+      Comece pelo modo Estudo, evolua no Solo e prove seu nível no Multiplayer.
+    </p>
+
+    <script src="./assets/js/pages/Modo/tutorial.js"></script>
   </body>
 </html>
