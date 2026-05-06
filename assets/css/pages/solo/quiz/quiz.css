@@ -1,3 +1,6 @@
+/* ===============================
+   1. GLOBAL & RESET
+   =============================== */
 * {
   margin: 0;
   padding: 0;
@@ -9,134 +12,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
   background: radial-gradient(circle, #106ecc 0%, #010f22 100%);
   font-family: Arial, Helvetica, sans-serif;
   color: white;
 }
 
-/* CONTAINER PRINCIPAL */
-.game {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-/* PERGUNTA */
-.pergunta {
-  width: 500px;
-  padding: 25px;
-
-  background-color: #0c1f4a;
-  border: 3px solid #ffd700;
-  border-radius: 20px;
-
-  text-align: center;
-  font-size: 22px;
-  font-weight: bold;
-}
-
-/* RESPOSTAS */
-.respostas {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.respostas button {
-  width: 350px;
-  padding: 15px;
-
-  background-color: #ffd700;
-  color: black;
-  font-weight: bold;
-  font-size: 18px;
-
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-
-  transition:
-    transform 0.1s ease,
-    filter 0.1s ease;
-}
-
-/* hover */
-.respostas button:hover {
-  transform: scale(1.05);
-}
-
-/* clique */
-.respostas button:active {
-  filter: brightness(0.8);
-  transform: scale(0.98);
-}
-
-/* FEEDBACK */
-.feedback {
-  width: 400px;
-  padding: 15px;
-
-  background-color: #0c1f4a;
-  border: 3px solid #ffd700;
-  border-radius: 15px;
-
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-
-  display: none;
-}
-
-/* correto */
-.feedback.correto {
-  border-color: #00ff88;
-  color: #00ff88;
-}
-
-/* errado */
-.feedback.errado {
-  border-color: #ff4d4d;
-  color: #ff4d4d;
-}
-
-.btn-proximo {
-  display: none;
-
-  margin-top: 10px;
-
-  padding: 12px 40px;
-  font-size: 18px;
-  font-weight: bold;
-
-  background-color: #ffd700;
-  color: black;
-
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-
-  box-shadow: 0 5px 0 #b89b00;
-
-  align-self: center; /* 🔥 centraliza dentro do flex */
-
-  transition:
-    transform 0.1s ease,
-    box-shadow 0.1s ease;
-}
-
-/* hover */
-.btn-proximo:hover {
-  transform: scale(1.05);
-}
-
-/* clique */
-.btn-proximo:active {
-  transform: scale(0.95);
-  box-shadow: 0 0 0 #b89b00;
-}
-/*Botão voltar*/
+/* Botão voltar */
 .voltar {
   position: absolute;
   left: 20px;
@@ -144,4 +25,421 @@ body {
   color: white;
   text-decoration: none;
   font-weight: bold;
+}
+
+/* ===============================
+   2. LAYOUT PRINCIPAL DO JOGO
+   =============================== */
+.game {
+  width: 680px;
+  max-width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza tudo */
+  gap: 15px;
+}
+
+/* ===============================
+   3. BARRA DE PROGRESSO
+   =============================== */
+.progresso-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.contador-pergunta {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+.progresso-container {
+  width: 80%; /* Tamanho elegante centralizado */
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.barra-progresso {
+  height: 100%;
+  width: 0%; /* Inicia vazia */
+  background: linear-gradient(90deg, #ffd700, #ffaa00);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  transition: width 0.4s ease-out; /* Animação suave */
+}
+
+/* ===============================
+   4. PERGUNTA E RESPOSTAS
+   =============================== */
+.pergunta-container {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.pergunta-nova {
+  width: 100%;
+  background-color: rgba(12, 31, 74, 0.5);
+  border: 1px solid #2a4b8d;
+  border-radius: 12px;
+  padding: 20px;
+  font-size: 17px;
+  text-align: center;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.respostas-lista {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-resposta-novo {
+  width: 100%;
+  background-color: rgba(12, 31, 74, 0.3);
+  border: 1px solid #2a4b8d;
+  border-radius: 12px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn-resposta-novo:hover {
+  border-color: #ffd700;
+  background-color: rgba(255, 215, 0, 0.05);
+  transform: scale(1.01);
+}
+
+.letra {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #a3b8e0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn-resposta-novo:hover .letra {
+  background-color: #ffd700;
+  color: #000;
+}
+
+.texto-opcao {
+  text-align: left;
+  flex: 1;
+}
+
+/* ===============================
+   5. MODAL DE TUTORIAL
+   =============================== */
+.tutorial-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.tutorial-modal {
+  background-color: #0c1f4a;
+  border: 3px solid #ffd700;
+  border-radius: 20px;
+  width: 700px;
+  max-width: 90%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.tutorial-content {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  width: 100%;
+}
+
+.tutorial-text {
+  flex: 1;
+}
+
+.tutorial-text h2 {
+  color: #ffd700;
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.tutorial-text p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.tutorial-image {
+  flex: 1;
+  height: 200px;
+  border: 2px dashed #4a6baf;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tutorial-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.setas {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-seta {
+  background-color: #ffd700;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  width: 50px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.btn-seta:hover {
+  transform: scale(1.1);
+}
+
+.btn-seta:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: scale(1);
+}
+
+.pular-tutorial {
+  color: #88a2d6;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.pular-tutorial:hover {
+  color: white;
+}
+
+.btn-comecar {
+  padding: 15px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #00ff88;
+  color: #010f22;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #00cc6a;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+
+.btn-comecar:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 0 #00cc6a;
+}
+
+/* ===============================
+   6. MODAL DE FEEDBACK NEON
+   =============================== */
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.feedback-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.feedback-modal {
+  background: linear-gradient(145deg, #0b1a3d, #143075);
+  border: 5px solid;
+  border-radius: 25px;
+  width: 420px;
+  padding: 40px 30px 30px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.7);
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Correto */
+.feedback-modal.correto {
+  border-color: #00ff88;
+  box-shadow:
+    0 0 30px rgba(0, 255, 136, 0.4),
+    inset 0 0 20px rgba(0, 255, 136, 0.2);
+}
+.feedback-modal.correto h2 {
+  color: #00ff88;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+.feedback-modal.correto .feedback-icon {
+  border-color: #00ff88;
+}
+
+/* Errado */
+.feedback-modal.errado {
+  border-color: #ff4d4d;
+  box-shadow:
+    0 0 30px rgba(255, 77, 77, 0.4),
+    inset 0 0 20px rgba(255, 77, 77, 0.2);
+}
+.feedback-modal.errado h2 {
+  color: #ff4d4d;
+  text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+}
+.feedback-modal.errado .feedback-icon {
+  border-color: #ff4d4d;
+}
+
+.feedback-icon {
+  font-size: 70px;
+  margin-top: -85px;
+  background: #010f22;
+  border-radius: 50%;
+  padding: 10px;
+  border: 5px solid;
+}
+
+.feedback-modal h2 {
+  font-size: 38px;
+  font-weight: 900;
+  margin: 10px 0 0 0;
+  letter-spacing: 2px;
+}
+
+.feedback-modal p {
+  font-size: 18px;
+  color: #e0e6ed;
+  font-weight: bold;
+}
+
+.btn-feedback-proximo {
+  margin-top: 20px;
+  padding: 15px 40px;
+  font-size: 22px;
+  font-weight: 900;
+  background-color: #ffd700;
+  color: #010f22;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 8px 0 #ccaa00;
+  transition: all 0.1s ease;
+}
+
+.btn-feedback-proximo:hover {
+  transform: translateY(2px);
+  box-shadow: 0 6px 0 #ccaa00;
+}
+
+.btn-feedback-proximo:active {
+  transform: translateY(8px);
+  box-shadow: 0 0 0 #ccaa00;
+}
+/* ===============================
+   7. HUD (POSICIONAMENTO NO CANTO SUPERIOR DIREITO)
+   =============================== */
+.hud-container {
+  position: absolute;
+  top: 30px;
+  right: 40px; /* Afastei um pouquinho mais da borda para respirar melhor */
+  display: flex;
+  align-items: center; /* Garante que Score e Vidas fiquem alinhados verticalmente no meio */
+  gap: 30px; /* Espaço entre o Score e os Raios */
+  z-index: 10;
+}
+
+.score-box {
+  display: flex;
+  align-items: center;
+  font-size: 24px; /* Aumentei um tiquinho para acompanhar o raio maior */
+  font-weight: 900;
+  color: white;
+  font-family: "Arial Black", Impact, sans-serif;
+  letter-spacing: 1px;
+}
+
+.vidas-box {
+  display: flex;
+  align-items: center; /* Mantém os raios na mesma linha base */
+  gap: 10px;
+}
+/*Serve para ajustar a posição dos raios */
+.vidas-box :nth-child(2) {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.vida {
+  width: 80px; /* 🔥 AUMENTADO EM ~50% (era 25px) */
+  height: auto;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+  /* Se a imagem estiver cortando alguma margem invisível, isso aqui ajuda: */
+  display: block;
+}
+
+/* Quando a vida é perdida */
+.vida.perdida {
+  filter: grayscale(1) brightness(0.3); /* Fica escuro e cinza */
+  opacity: 0.5;
+  transform: scale(0.9); /* Dá uma leve encolhida quando apaga */
 }
