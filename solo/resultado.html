@@ -3,56 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <title>EnerQuest - Resultado</title>
-
-    <!-- GLOBAL (padrão do projeto) -->
     <link rel="stylesheet" href="../assets/css/global/global.css" />
-
-    <!-- CSS DA PÁGINA -->
     <link rel="stylesheet" href="../assets/css/pages/solo/resultado.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
-
   <body>
-    <!-- BOTÃO VOLTAR -->
     <a href="quiz.html" class="voltar">✖</a>
 
-    <!-- TOPO -->
     <header class="topo">
       <img src="../assets/img/logo2UPX.png" alt="EnerQuest" class="logo" />
     </header>
 
-    <!-- CONTEÚDO -->
     <main class="container">
-      <!-- CARD -->
-      <div class="card">
-        <h2>SISTEMA ILUMINADO COM SUCESSO!</h2>
+      <!-- TÍTULO ÉPICO -->
+      <h1 id="epic-titulo" class="epic-titulo vitoria">SISTEMA ILUMINADO!</h1>
+      <p id="epic-sub" class="epic-sub">Parabéns, Operador — missão cumprida</p>
 
-        <p>
-          Parabéns, Operador! Você completou o desafio Solo e ativou a rede de
-          energia renovável!
-        </p>
+      <!-- LAYOUT PRINCIPAL -->
+      <div class="main-layout">
+        <!-- CARD ESQUERDO: ícone + score + vidas -->
+        <div class="card-score">
+          <div class="icone-res" id="icone-res">🏆</div>
+          <span class="score-label">Pontuação Final</span>
+          <span class="score-valor" id="pontos">0</span>
+          <span class="score-pts">PONTOS</span>
+          <div class="divider"></div>
+          <span class="vidas-label">Vidas Restantes</span>
+          <span class="vidas-icons" id="vidas-icons">⚡</span>
+        </div>
 
-        <!-- PONTUAÇÃO -->
-        <h3>
-          PONTUAÇÃO FINAL:
-          <span id="pontos">0</span> PONTOS
-        </h3>
+        <!-- CARD DIREITO: estatísticas empilhadas -->
+        <div class="card-stats">
+          <div class="stats-header">ESTATÍSTICAS</div>
 
-        <!-- VIDAS -->
-        <div class="vidas">
-          <span id="vidas-icon">⚡⚡</span>
-          <span>VIDAS: <span id="vidas">0</span></span>
+          <div class="stat-row">
+            <span class="stat-nome">Acertos</span>
+            <span class="stat-val verde" id="stat-acertos">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-nome">Erros</span>
+            <span class="stat-val vermelho" id="stat-erros">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-nome">Total</span>
+            <span class="stat-val neutro" id="stat-total">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-nome">Score</span>
+            <span class="stat-val dourado" id="stat-score">0</span>
+          </div>
         </div>
       </div>
 
       <!-- BOTÕES -->
-      <div class="botoes">
-        <a href="quiz.html" class="btn">JOGAR NOVAMENTE</a>
-        <a href="../modo.html" class="btn">ESCOLHER OS MODOS</a>
-        <a href="#" class="btn">ACESSAR RANKING</a>
+      <div class="res-botoes">
+        <a href="quiz.html" class="btn-primario">⟳ JOGAR NOVAMENTE</a>
+        <a href="../modo.html" class="btn-secundario">← ESCOLHER MODO</a>
       </div>
     </main>
 
-    <!-- JS -->
     <script src="../assets/js/pages/solo/resultado.js"></script>
   </body>
 </html>

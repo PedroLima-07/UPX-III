@@ -1,97 +1,301 @@
-/* =========================
-   RESULTADO (USANDO GLOBAL)
-   ========================= */
+/* ===============================
+   RESULTADO
+   =============================== */
 
-/* NÃO mexe no body (global já controla fundo) */
-
-/* LOGO - só aumenta */
+/* LOGO */
 .logo {
-  width: 460px;
+  width: 380px;
   max-width: 90%;
 }
 
-/* TOPO - só ajuste leve */
+/* TOPO */
 .topo {
   text-align: center;
   margin-top: 20px;
 }
 
-/* CONTAINER - usa estrutura global mas organiza */
+/* BOTÃO VOLTAR */
+.voltar {
+  position: absolute;
+  top: 24px;
+  left: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.voltar:hover {
+  opacity: 1;
+}
+
+/* CONTAINER PRINCIPAL */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 14px;
+  padding: 0 20px 40px;
 }
 
-/* CARD */
-.card {
-  background: rgba(15, 37, 87, 0.95);
-  border: 2px solid gold;
-  border-radius: 16px;
-  padding: 25px;
+/* ---- TÍTULO ÉPICO ---- */
+.epic-titulo {
+  font-family: "Orbitron", monospace;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 3px;
   text-align: center;
-  color: white;
+  margin: 0;
+  transition: color 0.3s;
+  text-shadow: 0 0 20px currentColor;
 }
 
-/* TEXTOS */
-.card h2 {
-  margin-bottom: 10px;
+.epic-titulo.vitoria {
+  color: #ffd700;
+}
+.epic-titulo.derrota {
+  color: #ff5050;
 }
 
-.card h3 span {
-  color: gold;
+.epic-sub {
+  font-family: "Exo 2", sans-serif;
+  font-size: 11px;
+  color: #3a5888;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
 }
 
-/* VIDAS */
-.vidas {
-  margin-top: 10px;
-  font-size: 16px;
-}
-
-/* BOTÕES */
-.botoes {
+/* ---- LAYOUT: card score + card stats ---- */
+.main-layout {
   display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+  max-width: 500px;
+  align-items: stretch;
+}
+
+/* CARD ESQUERDO */
+.card-score {
+  flex: 1;
+  background: #0c1f4a;
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  border-radius: 18px;
+  padding: 28px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* BOTÃO (usa global, só melhora leve) */
-.btn {
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: 0.2s;
+/* Brilho decorativo no topo do card */
+.card-score::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
-/* HOVER */
-.btn:hover {
-  transform: scale(1.05);
-}
-/* FORÇA TEXTO BRANCO */
-body {
-  color: white;
-}
-
-/* LINKS NÃO FICAREM ROXOS */
-a {
-  text-decoration: none;
-  color: inherit;
+/* Animação de entrada do ícone */
+@keyframes iconPop {
+  0% {
+    transform: scale(0.4) rotate(-10deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
 }
 
-/* BOTÕES VOLTAM AO PADRÃO */
-.btn {
-  background: linear-gradient(90deg, #1e3c72, #fbd72b);
-  color: white !important;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-weight: bold;
+.icone-res {
+  font-size: 48px;
+  line-height: 1;
+  animation: iconPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+}
+
+.score-label {
+  font-family: "Exo 2", sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #3a5888;
+  text-transform: uppercase;
+}
+
+.score-valor {
+  font-family: "Orbitron", monospace;
+  font-size: 44px;
+  font-weight: 900;
+  color: #ffd700;
+  line-height: 1;
+  text-shadow: 0 0 16px rgba(255, 215, 0, 0.25);
+}
+
+.score-pts {
+  font-family: "Exo 2", sans-serif;
+  font-size: 11px;
+  color: #3a5888;
+  letter-spacing: 2px;
+}
+
+/* Linha separadora */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.vidas-label {
+  font-family: "Exo 2", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #3a5888;
+  text-transform: uppercase;
+}
+
+.vidas-icons {
+  font-size: 18px;
+  letter-spacing: 4px;
+}
+
+/* CARD DIREITO: stats empilhadas */
+.card-stats {
+  width: 160px;
+  flex-shrink: 0;
+  background: #0c1f4a;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.stats-header {
+  font-family: "Orbitron", monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #2a4070;
   text-align: center;
-  display: inline-block;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 4px;
 }
 
-/* HOVER */
-.btn:hover {
-  transform: scale(1.05);
+/* Linha de cada stat: nome à esquerda, valor à direita */
+.stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-nome {
+  font-family: "Exo 2", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #4a6baf;
+  text-transform: uppercase;
+}
+
+.stat-val {
+  font-family: "Orbitron", monospace;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* Cores semânticas dos valores */
+.stat-val.verde {
+  color: #00dc78;
+}
+.stat-val.vermelho {
+  color: #ff5050;
+}
+.stat-val.dourado {
+  color: #ffd700;
+}
+.stat-val.neutro {
+  color: #6a88b8;
+}
+
+/* ---- BOTÕES ---- */
+.res-botoes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Botão principal: dourado com efeito 3D */
+.btn-primario {
+  width: 100%;
+  padding: 13px;
+  font-family: "Orbitron", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: #ffd700;
+  color: #010f22;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #b89a00;
+  transition: all 0.1s ease;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+.btn-primario:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #b89a00;
+}
+.btn-primario:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #b89a00;
+}
+
+/* Botão secundário: discreto */
+.btn-secundario {
+  width: 100%;
+  padding: 12px;
+  font-family: "Exo 2", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: transparent;
+  color: #4a6baf;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+.btn-secundario:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #8aa4cc;
+  background: rgba(255, 255, 255, 0.03);
 }

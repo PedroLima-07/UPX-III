@@ -1,0 +1,132 @@
+/* ===============================
+   6. MODAL DE FEEDBACK
+   =============================== */
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.feedback-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.feedback-modal {
+  background: #0c1f4a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  width: 380px;
+  max-width: 92%;
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  animation: popIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.3);
+  overflow: hidden;
+}
+
+/* ---- ÍCONE ---- */
+/* O círculo comunica o estado via cor de fundo e borda sutis */
+.feedback-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  margin-bottom: 4px;
+  border: 2px solid;
+  transition: all 0.3s ease;
+}
+
+.feedback-modal.correto .feedback-icon {
+  background: rgba(0, 220, 120, 0.1);
+  border-color: rgba(0, 220, 120, 0.4);
+}
+
+.feedback-modal.errado .feedback-icon {
+  background: rgba(255, 80, 80, 0.1);
+  border-color: rgba(255, 80, 80, 0.4);
+}
+
+/* ---- TÍTULO ---- */
+.feedback-modal h2 {
+  font-family: "Orbitron", monospace;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.feedback-modal.correto h2 {
+  color: #00dc78;
+}
+.feedback-modal.errado h2 {
+  color: #ff5050;
+}
+
+/* Linha separadora discreta entre título e texto */
+.feedback-modal .fb-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 2px 0;
+}
+
+/* ---- TEXTO DE DESCRIÇÃO ---- */
+.feedback-modal p {
+  font-family: "Exo 2", sans-serif;
+  font-size: 14px;
+  color: #8aa4cc;
+  text-align: center;
+  line-height: 1.55;
+  margin: 0;
+  padding: 0 8px;
+}
+
+/* ---- BOTÃO PRÓXIMO ---- */
+.btn-feedback-proximo {
+  margin-top: 14px;
+  width: 100%;
+  padding: 13px;
+  font-family: "Orbitron", monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: #ffd700;
+  color: #010f22;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #b89a00;
+  transition: all 0.1s ease;
+}
+
+.btn-feedback-proximo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #b89a00;
+}
+
+.btn-feedback-proximo:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #b89a00;
+}

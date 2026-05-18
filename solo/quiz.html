@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <title>EnerQuest</title>
     <link rel="stylesheet" href="/assets/css/pages/solo/quiz/quiz.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <header>
     <a href="../modo.html" class="voltar">⬅ VOLTAR</a>
@@ -11,6 +15,10 @@
   <body>
     <div id="tutorial-overlay" class="tutorial-overlay">
       <div class="tutorial-modal">
+        <!-- Bolinhas de progresso: vazia, o JS preenche -->
+        <div class="step-dots" id="step-dots"></div>
+
+        <!-- Conteúdo: ícone + texto -->
         <div class="tutorial-content" id="tutorial-content">
           <div class="tutorial-text">
             <h2 id="tut-titulo">MODO SOLO</h2>
@@ -19,16 +27,16 @@
           <div class="tutorial-image" id="tut-imagem"></div>
         </div>
 
+        <!-- Navegação: setas + pular -->
         <div class="tutorial-controls" id="tutorial-controls">
-          <div class="setas">
-            <button id="btn-prev" class="btn-seta">❮</button>
-            <button id="btn-next" class="btn-seta">❯</button>
-          </div>
-          <a href="#" id="btn-pular" class="pular-tutorial">Pular Tutorial</a>
+          <button id="btn-prev" class="btn-seta">❮</button>
+          <button id="btn-pular" class="pular-tutorial">Pular Tutorial</button>
+          <button id="btn-next" class="btn-seta">❯</button>
         </div>
 
+        <!-- Botão final (JS controla quando aparece) -->
         <button id="btn-comecar" class="btn-comecar" style="display: none">
-          COMEÇAR O QUIZ
+          ⚡ COMEÇAR O QUIZ
         </button>
       </div>
     </div>
@@ -80,6 +88,7 @@
         <div id="feedback-modal" class="feedback-modal">
           <div id="feedback-icon" class="feedback-icon">✅</div>
           <h2 id="feedback-titulo">CORRETO!</h2>
+          <div class="fb-divider"></div>
           <p id="feedback-texto">Você está progredindo bem!</p>
           <button id="btn-feedback-proximo" class="btn-feedback-proximo">
             PRÓXIMO

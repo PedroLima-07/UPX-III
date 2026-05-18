@@ -1,6 +1,7 @@
 // ===============================
 // 1. LÓGICA DO TUTORIAL INICIAL
 // ===============================
+
 const passosTutorial = [
   {
     titulo: "MODO SOLO",
@@ -24,6 +25,7 @@ const passosTutorial = [
 
 let passoAtual = 0;
 
+// Selecionamos todos os elementos que vamos precisar manipular
 const overlayTutorial = document.getElementById("tutorial-overlay");
 const tutTitulo = document.getElementById("tut-titulo");
 const tutTexto = document.getElementById("tut-texto");
@@ -33,23 +35,95 @@ const btnNext = document.getElementById("btn-next");
 const btnPular = document.getElementById("btn-pular");
 const tutorialControls = document.getElementById("tutorial-controls");
 const btnComecar = document.getElementById("btn-comecar");
+const stepDots = document.getElementById("step-dots"); // <-- NOVO: container das bolinhas
 
-function atualizarTutorial() {
+// Guarda a referência do intervalo do typewriter para podermos cancelá-lo
+// se o usuário trocar de slide antes do texto terminar de "digitar"
+let timerTypewriter = null;
+
+// ---- FUNÇÃO: BOLINHAS DE PROGRESSO ----
+// Recria as bolinhas sempre que o passo muda.
+// A bolinha do passo atual recebe a classe "ativo", que a estica via CSS.
+function atualizarDots() {
+  stepDots.innerHTML = ""; // Limpa as bolinhas antigas
+
+  passosTutorial.forEach((_, index) => {
+    const dot = document.createElement("div");
+    dot.className = "dot" + (index === passoAtual ? " ativo" : "");
+
+    // Clicar numa bolinha pula diretamente para aquele passo
+    dot.addEventListener("click", () => {
+      passoAtual = index;
+      atualizarTutorial();
+    });
+
+    stepDots.appendChild(dot);
+  });
+}
+
+// ---- FUNÇÃO: EFEITO TYPEWRITER ----
+// Recebe um elemento e um texto, e "digita" letra por letra.
+// O cursor piscante (span.cursor-blink) fica no final enquanto digita.
+function typewriter(elemento, texto) {
+  // Cancela qualquer digitação anterior que ainda esteja rodando
+  if (timerTypewriter) clearInterval(timerTypewriter);
+
+  let i = 0;
+  // Começa com só o cursor visível
+  elemento.innerHTML = '<span class="cursor-blink"></span>';
+
+  timerTypewriter = setInterval(() => {
+    if (i < texto.length) {
+      // Adiciona uma letra e recoloca o cursor no final
+      elemento.innerHTML =
+        texto.slice(0, ++i) + '<span class="cursor-blink"></span>';
+    } else {
+      // Texto completo: para o intervalo e remove o cursor
+      clearInterval(timerTypewriter);
+      elemento.innerHTML = texto;
+    }
+  }, 22); // 22ms por letra — rápido o suficiente para não cansar
+}
+
+// ---- FUNÇÃO: ATUALIZAR O TUTORIAL ----
+// Chamada sempre que o passo muda. Orquestra todas as atualizações visuais.
+function atualizarTutorial(animarSlide = true) {
   const passo = passosTutorial[passoAtual];
+
+  // 1. Atualiza o título
   tutTitulo.textContent = passo.titulo;
-  tutTexto.textContent = passo.texto;
+
+  // 2. Anima o ícone: remove a classe, força o reflow, e recoloca.
+  //    Esse truque (void el.offsetWidth) faz o browser "resetar" a animação CSS,
+  //    permitindo que ela rode novamente mesmo que já tenha rodado antes.
+  tutImagem.className = "";
+  void tutImagem.offsetWidth; // força reflow
+  tutImagem.className = "tutorial-image icone-animado";
   tutImagem.textContent = passo.imagem;
 
+  // 3. Anima a área de texto com slide (só quando navega, não na carga inicial)
+  if (animarSlide) {
+    tutTexto.className = "";
+    void tutTexto.offsetWidth; // força reflow
+    tutTexto.className = "slide-entrada";
+  }
+
+  // 4. Inicia o efeito typewriter no parágrafo de texto
+  typewriter(tutTexto, passo.texto);
+
+  // 5. Atualiza os botões de navegação
   btnPrev.disabled = passoAtual === 0;
 
-  if (passoAtual === passosTutorial.length - 1) {
-    tutorialControls.style.display = "none";
-    btnComecar.style.display = "block";
-  } else {
-    tutorialControls.style.display = "flex";
-    btnComecar.style.display = "none";
-  }
+  // 6. No último passo: esconde as setas e mostra o botão "Começar"
+  const ehUltimoPasso = passoAtual === passosTutorial.length - 1;
+  tutorialControls.style.display = ehUltimoPasso ? "none" : "flex";
+  btnComecar.style.display = ehUltimoPasso ? "block" : "none";
+
+  // 7. Atualiza as bolinhas de progresso
+  atualizarDots();
 }
+
+// ---- EVENTOS DOS BOTÕES ----
 
 btnNext.addEventListener("click", () => {
   if (passoAtual < passosTutorial.length - 1) {
@@ -57,23 +131,29 @@ btnNext.addEventListener("click", () => {
     atualizarTutorial();
   }
 });
+
 btnPrev.addEventListener("click", () => {
   if (passoAtual > 0) {
     passoAtual--;
     atualizarTutorial();
   }
 });
+
+// "Pular": vai direto para o último passo
 btnPular.addEventListener("click", (e) => {
   e.preventDefault();
   passoAtual = passosTutorial.length - 1;
   atualizarTutorial();
 });
+
+// "Começar": esconde o overlay e inicia o quiz
 btnComecar.addEventListener("click", () => {
   overlayTutorial.style.display = "none";
-  carregarPergunta();
+  carregarPergunta(); // Função que já existe no seu quiz.js
 });
 
-atualizarTutorial();
+// Inicia o tutorial no primeiro passo (sem animação de slide)
+atualizarTutorial(false);
 
 // ===============================
 // 2. LÓGICA PRINCIPAL DO QUIZ E HUD
