@@ -1,0 +1,9 @@
+/* Botão voltar */
+.voltar {
+  position: absolute;
+  left: 20px;
+  top: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}

@@ -1,0 +1,35 @@
+/* ===============================
+   3. BARRA DE PROGRESSO
+   =============================== */
+.progresso-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.contador-pergunta {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffd700;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+.progresso-container {
+  width: 80%; /* Tamanho elegante centralizado */
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.barra-progresso {
+  height: 100%;
+  width: 0%; /* Inicia vazia */
+  background: linear-gradient(90deg, #ffd700, #ffaa00);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  transition: width 0.4s ease-out; /* Animação suave */
+}

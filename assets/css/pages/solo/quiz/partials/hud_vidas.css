@@ -1,0 +1,50 @@
+/* ===============================
+   7. HUD (POSICIONAMENTO NO CANTO SUPERIOR DIREITO)
+   =============================== */
+.hud-container {
+  position: absolute;
+  top: 30px;
+  right: 40px; /* Afastei um pouquinho mais da borda para respirar melhor */
+  display: flex;
+  align-items: center; /* Garante que Score e Vidas fiquem alinhados verticalmente no meio */
+  gap: 30px; /* Espaço entre o Score e os Raios */
+  z-index: 10;
+}
+
+.score-box {
+  display: flex;
+  align-items: center;
+  font-size: 24px; /* Aumentei um tiquinho para acompanhar o raio maior */
+  font-weight: 900;
+  color: white;
+  font-family: "Arial Black", Impact, sans-serif;
+  letter-spacing: 1px;
+}
+
+.vidas-box {
+  display: flex;
+  align-items: center; /* Mantém os raios na mesma linha base */
+  gap: 10px;
+}
+/*Serve para ajustar a posição dos raios */
+.vidas-box :nth-child(2) {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.vida {
+  width: 80px; /* 🔥 AUMENTADO EM ~50% (era 25px) */
+  height: auto;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+  /* Se a imagem estiver cortando alguma margem invisível, isso aqui ajuda: */
+  display: block;
+}
+
+/* Quando a vida é perdida */
+.vida.perdida {
+  filter: grayscale(1) brightness(0.3); /* Fica escuro e cinza */
+  opacity: 0.5;
+  transform: scale(0.9); /* Dá uma leve encolhida quando apaga */
+}

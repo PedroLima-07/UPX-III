@@ -1,0 +1,70 @@
+/* ===============================
+   4. PERGUNTA E RESPOSTAS
+   =============================== */
+.pergunta-container {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.pergunta-nova {
+  width: 100%;
+  background-color: rgba(12, 31, 74, 0.5);
+  border: 1px solid #2a4b8d;
+  border-radius: 12px;
+  padding: 20px;
+  font-size: 17px;
+  text-align: center;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.respostas-lista {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-resposta-novo {
+  width: 100%;
+  background-color: rgba(12, 31, 74, 0.3);
+  border: 1px solid #2a4b8d;
+  border-radius: 12px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn-resposta-novo:hover {
+  border-color: #ffd700;
+  background-color: rgba(255, 215, 0, 0.05);
+  transform: scale(1.01);
+}
+
+.letra {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #a3b8e0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn-resposta-novo:hover .letra {
+  background-color: #ffd700;
+  color: #000;
+}
+
+.texto-opcao {
+  text-align: left;
+  flex: 1;
+}

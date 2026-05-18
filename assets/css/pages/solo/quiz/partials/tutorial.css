@@ -1,0 +1,289 @@
+/* ===============================
+   5. MODAL DE TUTORIAL (VERSÃO MELHORADA)
+   =============================== */
+
+/* Importa as fontes temáticas do projeto */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@400;600&display=swap");
+
+.tutorial-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.tutorial-modal {
+  background: linear-gradient(160deg, #0c1f4a 0%, #071530 100%);
+  border: 2px solid #ffd700;
+  border-radius: 20px;
+  width: 640px;
+  max-width: 92%;
+  padding: 32px 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  box-shadow:
+    0 0 40px rgba(255, 215, 0, 0.12),
+    0 20px 60px rgba(0, 0, 0, 0.6);
+
+  /* Detalhe decorativo no canto superior direito */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brilho sutil no canto — dá profundidade sem pesar */
+.tutorial-modal::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.07) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ---- BOLINHAS DE PROGRESSO ---- */
+.step-dots {
+  display: flex;
+  gap: 8px;
+  /* Fica no topo do modal, antes do conteúdo */
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  cursor: pointer;
+  /* Transição suave para o estado ativo */
+  transition: all 0.35s ease;
+}
+
+/* A bolinha do passo atual estica e fica dourada */
+.dot.ativo {
+  width: 24px;
+  border-radius: 4px;
+  background: #ffd700;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+/* ---- CORPO DO TUTORIAL (ÍCONE + TEXTO) ---- */
+.tutorial-content {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+  min-height: 160px;
+}
+
+/* Círculo do ícone com anel pulsante */
+.tutorial-image {
+  flex-shrink: 0;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: rgba(255, 215, 0, 0.05);
+  border: 2px solid rgba(255, 215, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 56px;
+  position: relative;
+}
+
+/* Anel externo que pulsa — dá sensação de energia */
+.tutorial-image::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  animation: pulseRing 2.2s ease-in-out infinite;
+}
+
+@keyframes pulseRing {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.15;
+  }
+}
+
+/* Animação de entrada do ícone a cada troca de slide */
+.icone-animado {
+  animation: iconPop 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.5);
+}
+
+@keyframes iconPop {
+  0% {
+    transform: scale(0.3) rotate(-15deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* ---- ÁREA DE TEXTO ---- */
+.tutorial-text {
+  flex: 1;
+}
+
+/* Título usa Orbitron: fonte com cara de HUD/jogo */
+.tutorial-text h2 {
+  font-family: "Orbitron", monospace;
+  color: #ffd700;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+}
+
+.tutorial-text p {
+  font-family: "Exo 2", sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #c8d8f0;
+  min-height: 76px; /* Evita o modal "pular" enquanto o texto é digitado */
+}
+
+/* Cursor piscante do efeito typewriter */
+.cursor-blink {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: #ffd700;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Animação de slide ao trocar de passo */
+.slide-entrada {
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ---- RODAPÉ: NAVEGAÇÃO ---- */
+.tutorial-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+
+/* Botões de seta (❮ ❯) */
+.btn-seta {
+  background: rgba(255, 215, 0, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.35);
+  color: #ffd700;
+  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-seta:hover:not(:disabled) {
+  background: rgba(255, 215, 0, 0.18);
+  transform: scale(1.12);
+}
+
+.btn-seta:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Link "Pular Tutorial" */
+.pular-tutorial {
+  background: none;
+  border: none;
+  color: #4d6a99;
+  font-size: 13px;
+  font-family: "Exo 2", sans-serif;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.pular-tutorial:hover {
+  color: #aabbd4;
+}
+
+/* ---- BOTÃO COMEÇAR (último slide) ---- */
+.btn-comecar {
+  width: 100%;
+  padding: 14px;
+  font-family: "Orbitron", monospace;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: #00ff88;
+  color: #010f22;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow:
+    0 6px 0 #00aa55,
+    0 0 20px rgba(0, 255, 136, 0.25);
+  transition: all 0.12s ease;
+  display: none; /* Começa escondido; o JS mostra no último passo */
+}
+
+.btn-comecar:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 0 #00aa55,
+    0 0 30px rgba(0, 255, 136, 0.4);
+}
+
+.btn-comecar:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #00aa55;
+}
