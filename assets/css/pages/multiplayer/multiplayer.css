@@ -37,3 +37,209 @@ body {
 .hidden {
   display: none;
 }
+@import url(../multiplayer/partials/animacoes.css);
+@import url(../multiplayer/partials/area_de_login.css);
+@import url(../multiplayer/partials/area_do_quiz.css);
+@import url(../multiplayer/partials/estrutura_principal.css);
+@import url(../multiplayer/partials/feedback_de_respostas.css);
+@import url(../multiplayer/partials/header.css);
+@import url(../multiplayer/partials/hud_do_jogo.css);
+@import url(../multiplayer/partials/perguntas_e_respostas.css);
+@import url(../multiplayer/partials/progresso_quiz.css);
+@import url(../multiplayer/partials/sistema_de_vidas.css);
+
+@import url(../../global/global.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+
+  background: radial-gradient(
+    circle,
+    #106ecc 0%,
+    #010f22 100%
+  );
+
+  color: white;
+
+  font-family: Arial,
+    Helvetica,
+    sans-serif;
+
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+#jogador-da-vez {
+  text-align: center;
+
+  margin-bottom: 20px;
+
+  color: #fff;
+}
+
+.resultado-final {
+  text-align: center;
+
+  margin-top: 100px;
+}
+
+.resultado-final h1 {
+  margin-bottom: 20px;
+}
+
+.resultado-final p {
+  margin: 10px 0;
+
+  font-size: 22px;
+}
+
+.resultado-final button {
+  margin-top: 20px;
+
+  padding: 12px 20px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+#jogador-da-vez {
+  text-align: center;
+
+  margin-bottom: 20px;
+
+  color: white;
+
+  font-size: 24px;
+}
+
+.resultado-final {
+  text-align: center;
+
+  margin-top: 100px;
+
+  color: white;
+}
+
+.resultado-final button {
+  margin-top: 20px;
+
+  padding: 10px 20px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+#jogador-da-vez {
+  text-align: center;
+
+  margin-bottom: 20px;
+
+  color: white;
+
+  font-size: 24px;
+
+  font-weight: bold;
+}
+
+.feedback-certo {
+  background: linear-gradient(
+    135deg,
+    #00c853,
+    #1b5e20
+  );
+
+  color: white;
+}
+
+.feedback-errado {
+  background: linear-gradient(
+    135deg,
+    #ff1744,
+    #b71c1c
+  );
+
+  color: white;
+}
+
+.feedback-troca {
+  background: linear-gradient(
+    135deg,
+    #2196f3,
+    #0d47a1
+  );
+
+  color: white;
+}
+
+.resultado-card {
+  background: rgba(
+    0,
+    0,
+    0,
+    0.75
+  );
+
+  padding: 40px;
+
+  border-radius: 20px;
+
+  width: 450px;
+
+  margin: auto;
+
+  box-shadow: 0 0 30px
+    rgba(0, 0, 0, 0.5);
+}
+
+.placar-final {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin: 20px 0;
+
+  font-size: 22px;
+}
+
+.vencedor {
+  margin-top: 30px;
+
+  color: #ffe600;
+}
+
+.btn-jogar-novamente {
+  margin-top: 30px;
+
+  padding: 12px 24px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #ffe600;
+
+  color: black;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.btn-jogar-novamente:hover {
+  transform: scale(1.05);
+}
