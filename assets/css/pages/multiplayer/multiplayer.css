@@ -1,196 +1,473 @@
-@import url(/assets/css/pages/multiplayer/partials/animacoes.css);
-@import url(/assets/css/pages/multiplayer/partials/area_de_login.css);
-@import url(/assets/css/pages/multiplayer/partials/area_do_quiz.css);
-@import url(/assets/css/pages/multiplayer/partials/estrutura_principal.css);
-@import url(/assets/css/pages/multiplayer/partials/feedback_de_respostas.css);
-@import url(/assets/css/pages/multiplayer/partials/header.css);
-@import url(/assets/css/pages/multiplayer/partials/hud_do_jogo.css);
-@import url(/assets/css/pages/multiplayer/partials/perguntas_e_respostas.css);
-@import url(/assets/css/pages/multiplayer/partials/progresso_quiz.css);
-@import url(/assets/css/pages/multiplayer/partials/ranking.css);
-@import url(/assets/css/pages/multiplayer/partials/sistema_de_vidas.css);
-
-@import url(/assets/css/global/global.css);
-
-/* ==========================================
-   RESET E CONFIGURAÇÕES GERAIS
-   ========================================== */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  min-height: 100vh;
-
-  background: radial-gradient(circle, #106ecc 0%, #010f22 100%);
-
-  color: white;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  padding: 20px;
-}
-
-.hidden {
-  display: none;
-}
-@import url(../multiplayer/partials/animacoes.css);
-@import url(../multiplayer/partials/area_de_login.css);
-@import url(../multiplayer/partials/area_do_quiz.css);
-@import url(../multiplayer/partials/estrutura_principal.css);
-@import url(../multiplayer/partials/feedback_de_respostas.css);
-@import url(../multiplayer/partials/header.css);
-@import url(../multiplayer/partials/hud_do_jogo.css);
-@import url(../multiplayer/partials/perguntas_e_respostas.css);
-@import url(../multiplayer/partials/progresso_quiz.css);
-@import url(../multiplayer/partials/sistema_de_vidas.css);
+@import url(./partials/animacoes.css);
+@import url(./partials/area_de_login.css);
+@import url(./partials/area_do_quiz.css);
+@import url(./partials/estrutura_principal.css);
+@import url(./partials/feedback_de_respostas.css);
+@import url(./partials/header.css);
+@import url(./partials/hud_do_jogo.css);
+@import url(./partials/perguntas_e_respostas.css);
+@import url(./partials/progresso_quiz.css);
+@import url(./partials/ranking.css);
+@import url(./partials/sistema_de_vidas.css);
 
 @import url(../../global/global.css);
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  min-height: 100vh;
-
-  background: radial-gradient(
-    circle,
-    #106ecc 0%,
-    #010f22 100%
-  );
-
-  color: white;
-
-  font-family: Arial,
-    Helvetica,
-    sans-serif;
-
-  padding: 20px;
-}
+/* ===================================
+GERAL
+=================================== */
 
 .hidden {
   display: none;
 }
 
-#jogador-da-vez {
-  text-align: center;
+body {
+  background: linear-gradient(
+    90deg,
+    #00152d 0%,
+    #0d4ea3 50%,
+    #00152d 100%
+  );
 
-  margin-bottom: 20px;
+  min-height: 100vh;
 
-  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+
+  overflow-x: hidden;
 }
 
-.resultado-final {
-  text-align: center;
-
-  margin-top: 100px;
+.game {
+  width: 100%;
 }
 
-.resultado-final h1 {
-  margin-bottom: 20px;
+/* ===================================
+TOPO
+=================================== */
+
+.topo {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding-top: 12px;
 }
 
-.resultado-final p {
-  margin: 10px 0;
+.logo {
+  width: 95px;
 
-  font-size: 22px;
+  margin-top: 5px;
 }
 
-.resultado-final button {
-  margin-top: 20px;
+/* ===================================
+HUD
+=================================== */
 
-  padding: 12px 20px;
+.hud-container {
+  width: 100%;
 
-  border: none;
+  display: flex;
 
-  border-radius: 10px;
+  justify-content: flex-start;
 
-  cursor: pointer;
+  padding: 15px 35px;
 }
-#jogador-da-vez {
-  text-align: center;
 
-  margin-bottom: 20px;
+.placar-multiplayer {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.08
+  );
+
+  backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.08
+  );
+
+  padding: 10px 18px;
+
+  border-radius: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 28px;
 
   color: white;
 
-  font-size: 24px;
+  font-size: 16px;
+
+  font-weight: bold;
+
+  box-shadow: 0 4px 18px
+    rgba(0, 0, 0, 0.2);
 }
 
-.resultado-final {
-  text-align: center;
+.placar-multiplayer div {
+  display: flex;
 
-  margin-top: 100px;
+  align-items: center;
 
+  gap: 10px;
+}
+
+.placar-multiplayer div::before {
+  content: "";
+
+  width: 16px;
+
+  height: 16px;
+
+  border-radius: 5px;
+
+  display: block;
+}
+
+/* PLAYER 1 - AZUL */
+
+.placar-multiplayer div:first-child::before {
+  background: linear-gradient(
+    135deg,
+    #63a4ff,
+    #1976d2
+  );
+
+  box-shadow: 0 0 10px
+    rgba(25, 118, 210, 0.5);
+}
+
+/* PLAYER 2 - AMARELO */
+
+.placar-multiplayer div:last-child::before {
+  background: linear-gradient(
+    135deg,
+    #ffe600,
+    #ffb300
+  );
+
+  box-shadow: 0 0 10px
+    rgba(255, 193, 7, 0.6);
+}
+
+/* ===================================
+LOGIN
+=================================== */
+
+.login-area {
+  width: 520px;
+
+  margin: 10px auto;
+
+  background: #123d83;
+
+  padding: 20px;
+
+  border-radius: 24px;
+
+  box-shadow: 0 0 30px
+    rgba(0, 0, 0, 0.3);
+}
+
+.login-area h2 {
   color: white;
-}
 
-.resultado-final button {
-  margin-top: 20px;
-
-  padding: 10px 20px;
-
-  border: none;
-
-  border-radius: 8px;
-
-  cursor: pointer;
-}
-#jogador-da-vez {
-  text-align: center;
+  font-size: 28px;
 
   margin-bottom: 20px;
-
-  color: white;
-
-  font-size: 24px;
 
   font-weight: bold;
 }
 
-.feedback-certo {
-  background: linear-gradient(
-    135deg,
-    #00c853,
-    #1b5e20
-  );
+.login-area input {
+  width: 100%;
+
+  padding: 16px;
+
+  border: none;
+
+  border-radius: 15px;
+
+  margin-bottom: 12px;
+
+  font-size: 16px;
+
+  background: #f1f1f1;
+}
+
+.btn-entrar {
+  width: 100%;
+
+  margin-top: 20px;
+
+  background: #ffd500;
+
+  border: none;
+
+  padding: 16px;
+
+  border-radius: 15px;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.btn-entrar:hover {
+  transform: scale(1.02);
+
+  background: #ffea00;
+}
+
+/* ===================================
+TECLAS
+=================================== */
+
+.teclas-info {
+  margin-top: 20px;
+
+  text-align: center;
 
   color: white;
+
+  line-height: 2;
+
+  font-size: 16px;
+}
+
+/* ===================================
+QUIZ
+=================================== */
+
+.quiz-area {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-direction: column;
+
+  margin-top: 15px;
+}
+
+#conteudo-jogo {
+  width: 520px;
+}
+
+/* ===================================
+BUZZER
+=================================== */
+
+#jogador-da-vez {
+  text-align: center;
+
+  color: white;
+
+  margin-bottom: 10px;
+
+  font-size: 20px;
+
+  font-weight: bold;
+}
+
+.status-buzzer {
+  text-align: center;
+
+  color: #ffe600;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  margin-bottom: 20px;
+}
+
+/* ===================================
+PROGRESSO
+=================================== */
+
+.progresso-wrapper {
+  width: 100%;
+
+  margin-bottom: 20px;
+}
+
+.progresso-container {
+  width: 100%;
+
+  height: 10px;
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.2
+  );
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+.barra-progresso {
+  height: 100%;
+
+  width: 0%;
+
+  background: #ffd500;
+
+  transition: 0.4s;
+}
+
+.contador-pergunta {
+  text-align: center;
+
+  color: #ffe600;
+
+  margin-top: 8px;
+
+  font-weight: bold;
+
+  font-size: 18px;
+}
+
+/* ===================================
+PERGUNTA
+=================================== */
+
+.pergunta-container {
+  padding: 8px;
+
+  margin-bottom: 18px;
+
+  text-align: center;
+}
+
+.pergunta-nova {
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  line-height: 1.5;
+}
+
+/* ===================================
+RESPOSTAS
+=================================== */
+
+.respostas-lista {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.btn-resposta-novo {
+  width: 100%;
+
+  border: none;
+
+  background: #123d83;
+
+  color: white;
+
+  padding: 16px;
+
+  border-radius: 14px;
+
+  text-align: left;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.btn-resposta-novo:hover {
+  transform: translateY(-2px);
+
+  background: #1c4f9f;
+}
+
+.btn-resposta-novo:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+/* ===================================
+FEEDBACK
+=================================== */
+
+.feedback {
+  position: fixed;
+
+  top: 30px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 20px 40px;
+
+  border-radius: 15px;
+
+  color: white;
+
+  font-size: 20px;
+
+  font-weight: bold;
+
+  z-index: 9999;
+}
+
+.feedback-certo {
+  background: #00c853;
 }
 
 .feedback-errado {
-  background: linear-gradient(
-    135deg,
-    #ff1744,
-    #b71c1c
-  );
-
-  color: white;
+  background: #ff1744;
 }
 
 .feedback-troca {
-  background: linear-gradient(
-    135deg,
-    #2196f3,
-    #0d47a1
-  );
+  background: #2196f3;
+}
 
-  color: white;
+/* ===================================
+RESULTADO FINAL
+=================================== */
+
+.resultado-final {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 100px;
 }
 
 .resultado-card {
-  background: rgba(
-    0,
-    0,
-    0,
-    0.75
-  );
+  background: #123d83;
 
   padding: 40px;
 
@@ -198,10 +475,15 @@ body {
 
   width: 450px;
 
-  margin: auto;
+  text-align: center;
 
-  box-shadow: 0 0 30px
-    rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.resultado-card h1 {
+  font-size: 36px;
+
+  margin-bottom: 25px;
 }
 
 .placar-final {
@@ -211,27 +493,31 @@ body {
 
   margin: 20px 0;
 
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .vencedor {
-  margin-top: 30px;
+  margin-top: 25px;
 
   color: #ffe600;
+
+  font-size: 28px;
 }
 
 .btn-jogar-novamente {
-  margin-top: 30px;
+  margin-top: 25px;
 
-  padding: 12px 24px;
+  width: 100%;
+
+  padding: 18px;
 
   border: none;
 
-  border-radius: 10px;
+  border-radius: 15px;
 
-  background: #ffe600;
+  background: #ffd500;
 
-  color: black;
+  font-size: 18px;
 
   font-weight: bold;
 
@@ -241,5 +527,5 @@ body {
 }
 
 .btn-jogar-novamente:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
