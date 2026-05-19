@@ -1,3 +1,21 @@
+@import url(/assets/css/pages/multiplayer/partials/animacoes.css);
+@import url(/assets/css/pages/multiplayer/partials/area_de_login.css);
+@import url(/assets/css/pages/multiplayer/partials/area_do_quiz.css);
+@import url(/assets/css/pages/multiplayer/partials/estrutura_principal.css);
+@import url(/assets/css/pages/multiplayer/partials/feedback_de_respostas.css);
+@import url(/assets/css/pages/multiplayer/partials/header.css);
+@import url(/assets/css/pages/multiplayer/partials/hud_do_jogo.css);
+@import url(/assets/css/pages/multiplayer/partials/perguntas_e_respostas.css);
+@import url(/assets/css/pages/multiplayer/partials/progresso_quiz.css);
+@import url(/assets/css/pages/multiplayer/partials/ranking.css);
+@import url(/assets/css/pages/multiplayer/partials/sistema_de_vidas.css);
+
+@import url(/assets/css/global/global.css);
+
+/* ==========================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,10 +25,7 @@
 body {
   min-height: 100vh;
 
-  background:
-    radial-gradient(circle,
-    #106ecc 0%,
-    #010f22 100%);
+  background: radial-gradient(circle, #106ecc 0%, #010f22 100%);
 
   color: white;
 
@@ -21,269 +36,4 @@ body {
 
 .hidden {
   display: none;
-}
-
-.btn-voltar {
-  position: absolute;
-
-  top: 20px;
-  left: 20px;
-
-  text-decoration: none;
-
-  color: white;
-
-  font-size: 28px;
-}
-
-.topo {
-  display: flex;
-  justify-content: center;
-
-  margin-bottom: 20px;
-}
-
-.logo {
-  width: 180px;
-}
-
-.game {
-  width: 100%;
-  max-width: 700px;
-
-  margin: auto;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 20px;
-}
-
-.hud-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  gap: 15px;
-}
-
-.score-box,
-.ranking-box,
-.vidas-box {
-  background:
-    rgba(12, 31, 74, 0.5);
-
-  border:
-    1px solid #2a4b8d;
-
-  border-radius: 12px;
-
-  padding: 15px;
-}
-
-.vidas-box {
-  display: flex;
-  gap: 10px;
-}
-
-.vida {
-  width: 35px;
-
-  transition: 0.3s;
-}
-
-.perdida {
-  opacity: 0.2;
-
-  filter: grayscale(1);
-}
-
-.ranking-box ul {
-  margin-top: 10px;
-}
-
-.ranking-box li {
-  margin-bottom: 5px;
-}
-
-.login-area {
-  display: flex;
-  flex-direction: column;
-
-  gap: 15px;
-
-  background:
-    rgba(12, 31, 74, 0.5);
-
-  border:
-    1px solid #2a4b8d;
-
-  border-radius: 12px;
-
-  padding: 20px;
-}
-
-.login-area input {
-  padding: 14px;
-
-  border: none;
-  border-radius: 10px;
-}
-
-.btn-entrar {
-  padding: 14px;
-
-  border: none;
-  border-radius: 10px;
-
-  background: #ffd700;
-
-  color: black;
-
-  font-weight: bold;
-
-  cursor: pointer;
-}
-
-.quiz-area {
-  display: flex;
-  flex-direction: column;
-
-  gap: 20px;
-}
-
-.progresso-wrapper {
-  display: flex;
-  flex-direction: column;
-
-  gap: 10px;
-}
-
-.progresso-container {
-  width: 100%;
-  height: 12px;
-
-  background:
-    rgba(255,255,255,0.1);
-
-  border-radius: 20px;
-
-  overflow: hidden;
-}
-
-.barra-progresso {
-  height: 100%;
-  width: 0%;
-
-  background: #ffd700;
-
-  transition: 0.3s;
-}
-
-.contador-pergunta {
-  text-align: center;
-
-  color: #ffd700;
-
-  font-weight: bold;
-}
-
-.pergunta-nova {
-  width: 100%;
-
-  background:
-    rgba(12, 31, 74, 0.5);
-
-  border:
-    1px solid #2a4b8d;
-
-  border-radius: 12px;
-
-  padding: 20px;
-
-  text-align: center;
-
-  font-size: 20px;
-
-  line-height: 1.5;
-}
-
-.respostas-lista {
-  display: flex;
-  flex-direction: column;
-
-  gap: 15px;
-}
-
-.btn-resposta-novo {
-  width: 100%;
-
-  background:
-    rgba(12, 31, 74, 0.3);
-
-  border:
-    1px solid #2a4b8d;
-
-  border-radius: 12px;
-
-  padding: 16px;
-
-  color: white;
-
-  cursor: pointer;
-
-  transition: 0.2s;
-}
-
-.btn-resposta-novo:hover {
-  border-color: #ffd700;
-
-  background:
-    rgba(255, 215, 0, 0.08);
-}
-
-.feedback {
-  position: fixed;
-
-  top: 30px;
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  padding: 18px 30px;
-
-  border-radius: 12px;
-
-  font-weight: bold;
-
-  z-index: 999;
-
-  animation: aparecer 0.3s ease;
-}
-
-.feedback-correto {
-  background: #00ff88;
-  color: black;
-}
-
-.feedback-errado {
-  background: #ff4d4d;
-  color: white;
-}
-
-@keyframes aparecer {
-
-  from {
-    opacity: 0;
-    transform:
-      translateX(-50%)
-      translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform:
-      translateX(-50%)
-      translateY(0);
-  }
 }

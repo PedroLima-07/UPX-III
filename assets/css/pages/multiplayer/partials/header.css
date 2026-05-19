@@ -1,0 +1,27 @@
+/* ==========================================
+   HEADER / TOPO DA PÁGINA
+   ========================================== */
+
+.btn-voltar {
+  position: absolute;
+
+  top: 20px;
+  left: 20px;
+
+  text-decoration: none;
+
+  color: white;
+
+  font-size: 28px;
+}
+
+.topo {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 180px;
+}
