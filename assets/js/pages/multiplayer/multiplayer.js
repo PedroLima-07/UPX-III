@@ -1,20 +1,20 @@
-// ===============================
+// =====================================
 // VARIÁVEIS
-// ===============================
+// =====================================
 
 let indicePerguntaAtual = 0;
 
-let pontos = 0;
+let jogadorAtual = 1;
 
-let vidas = 3;
+let pontosJogador1 = 0;
+let pontosJogador2 = 0;
 
-let acertosSeguidos = 0;
+let nomeJogador1 = "";
+let nomeJogador2 = "";
 
-let jogadorAtual = "";
-
-// ===============================
+// =====================================
 // ELEMENTOS
-// ===============================
+// =====================================
 
 const elementoPergunta =
   document.getElementById(
@@ -41,6 +41,11 @@ const scoreValor =
     "score-valor"
   );
 
+const jogadorDaVez =
+  document.getElementById(
+    "jogador-da-vez"
+  );
+
 const feedback =
   document.getElementById(
     "feedback"
@@ -51,100 +56,82 @@ const feedbackTexto =
     "feedback-texto"
   );
 
-// ===============================
+// =====================================
 // FEEDBACK
-// ===============================
+// =====================================
 
 function mostrarFeedback(
   mensagem,
   tipo
 ) {
-
   feedbackTexto.textContent =
     mensagem;
 
   feedback.className =
     `feedback feedback-${tipo}`;
 
-  setTimeout(() => {
+  feedback.classList.remove(
+    "hidden"
+  );
 
+  setTimeout(() => {
     feedback.classList.add(
       "hidden"
     );
-
-  }, 1200);
+  }, 1500);
 }
 
-// ===============================
+// =====================================
 // LOGIN
-// ===============================
+// =====================================
 
 function entrarJogo() {
-
-  const nome =
+  nomeJogador1 =
     document.getElementById(
-      "nomeJogador"
+      "nomeJogador1"
     ).value;
 
-  if (nome.trim() === "") {
+  nomeJogador2 =
+    document.getElementById(
+      "nomeJogador2"
+    ).value;
 
+  if (
+    nomeJogador1.trim() ===
+      "" ||
+    nomeJogador2.trim() ===
+      ""
+  ) {
     mostrarFeedback(
-      "Digite seu nome",
+      "Digite os nomes",
       "errado"
     );
 
     return;
   }
 
-  jogadorAtual = nome;
-
   document
-    .getElementById("login-area")
+    .getElementById(
+      "login-area"
+    )
     .classList.add("hidden");
 
   document
-    .getElementById("conteudo-jogo")
-    .classList.remove("hidden");
-
-  atualizarVidasUI();
-
-  carregarPergunta();
-
-  atualizarRanking();
-}
-
-// ===============================
-// VIDAS
-// ===============================
-
-function atualizarVidasUI() {
-
-  const vidasBox =
-    document.getElementById(
-      "vidas-box"
+    .getElementById(
+      "conteudo-jogo"
+    )
+    .classList.remove(
+      "hidden"
     );
 
-  let icones = "";
-
-  for (
-    let i = 0;
-    i < vidas;
-    i++
-  ) {
-
-    icones += "⚡ ";
-  }
-
-  vidasBox.textContent =
-    icones;
+  carregarPergunta();
 }
 
-// ===============================
+// =====================================
 // PROGRESSO
-// ===============================
+// =====================================
 
 function atualizarProgresso() {
-
   const totalPerguntas =
     bancoDePerguntas.length;
 
@@ -152,7 +139,9 @@ function atualizarProgresso() {
     indicePerguntaAtual + 1;
 
   const porcentagem =
-    (perguntaNumero / totalPerguntas) * 100;
+    (perguntaNumero /
+      totalPerguntas) *
+    100;
 
   barraProgresso.style.width =
     porcentagem + "%";
@@ -161,12 +150,11 @@ function atualizarProgresso() {
     `${perguntaNumero}/${totalPerguntas}`;
 }
 
-// ===============================
+// =====================================
 // CARREGAR PERGUNTA
-// ===============================
+// =====================================
 
 function carregarPergunta() {
-
   atualizarProgresso();
 
   const perguntaAtual =
@@ -174,48 +162,44 @@ function carregarPergunta() {
       indicePerguntaAtual
     ];
 
+  const nomeAtual =
+    jogadorAtual === 1
+      ? nomeJogador1
+      : nomeJogador2;
+
+  jogadorDaVez.textContent =
+    `🎮 VEZ DE: ${nomeAtual}`;
+
   elementoPergunta.textContent =
     perguntaAtual.pergunta;
 
   botoesResposta.forEach(
     (botao, index) => {
-
       const spanTexto =
         botao.querySelector(
           ".texto-opcao"
         );
 
       spanTexto.textContent =
-        perguntaAtual.opcoes[index];
-
-      botao.disabled = false;
-
-      botao.style.borderColor =
-        "#2a4b8d";
-
-      botao.style.backgroundColor =
-        "rgba(12, 31, 74, 0.3)";
+        perguntaAtual.opcoes[
+          index
+        ];
     }
   );
 }
 
-// ===============================
-// RESPOSTAS
-// ===============================
+// =====================================
+// VERIFICAR RESPOSTA
+// =====================================
 
 botoesResposta.forEach(
   (botao) => {
-
     botao.addEventListener(
       "click",
 
       (evento) => {
-
-        const botaoClicado =
-          evento.currentTarget;
-
         const respostaEscolhida =
-          botaoClicado
+          evento.currentTarget
             .querySelector(
               ".texto-opcao"
             ).textContent;
@@ -225,185 +209,164 @@ botoesResposta.forEach(
             indicePerguntaAtual
           ].respostaCorreta;
 
-        // ACERTO
-
         if (
           respostaEscolhida ===
           respostaCerta
         ) {
-
-          acertosSeguidos++;
-
-          let pontosGanhos = 10;
-
           if (
-            acertosSeguidos === 2
+            jogadorAtual === 1
           ) {
-
-            pontosGanhos = 12;
+            pontosJogador1 += 10;
+          } else {
+            pontosJogador2 += 10;
           }
-
-          if (
-            acertosSeguidos >= 3
-          ) {
-
-            pontosGanhos = 14;
-          }
-
-          pontos += pontosGanhos;
-
-          scoreValor.textContent =
-            pontos;
 
           mostrarFeedback(
-            `+${pontosGanhos} pontos!`,
-            "correto"
+            "⚡ RESPOSTA CORRETA ⚡",
+            "certo"
           );
-
-          botaoClicado.style.borderColor =
-            "#00ff88";
-
-          botaoClicado.style.backgroundColor =
-            "rgba(0, 255, 136, 0.1)";
-
         } else {
-
-          // ERRO
-
-          acertosSeguidos = 0;
-
-          vidas--;
-
-          atualizarVidasUI();
-
           mostrarFeedback(
-            "Resposta errada!",
+            "❌ RESPOSTA ERRADA ❌",
             "errado"
           );
-
-          botaoClicado.style.borderColor =
-            "#ff4d4d";
-
-          botaoClicado.style.backgroundColor =
-            "rgba(255, 77, 77, 0.1)";
         }
 
-        botoesResposta.forEach(
-          (b) => {
-
-            b.disabled = true;
-          }
-        );
-
-        // GAME OVER
-
-        if (vidas <= 0) {
-
-          setTimeout(() => {
-
-            finalizarQuiz();
-
-          }, 1200);
-
-          return;
-        }
-
-        // PRÓXIMA
+        atualizarScore();
 
         setTimeout(() => {
-
-          indicePerguntaAtual++;
-
-          if (
-            indicePerguntaAtual <
-            bancoDePerguntas.length
-          ) {
-
-            carregarPergunta();
-
-          } else {
-
-            finalizarQuiz();
-          }
-
-        }, 1200);
+          proximaPergunta();
+        }, 1000);
       }
     );
   }
 );
 
-// ===============================
-// FINALIZAR QUIZ
-// ===============================
+// =====================================
+// SCORE
+// =====================================
 
-function finalizarQuiz() {
-
-  let ranking =
-    JSON.parse(
-      localStorage.getItem(
-        "ranking-multiplayer"
-      )
-    ) || [];
-
-  ranking.push({
-
-    nome: jogadorAtual,
-
-    pontos: pontos
-
-  });
-
-  ranking.sort(
-    (a, b) => b.pontos - a.pontos
-  );
-
-  localStorage.setItem(
-    "ranking-multiplayer",
-
-    JSON.stringify(ranking)
-  );
-
-  mostrarFeedback(
-    `Fim do jogo! ${pontos} pontos`,
-    "correto"
-  );
-
-  setTimeout(() => {
-
-    window.location.href =
-      "/modo.html";
-
-  }, 2000);
+function atualizarScore() {
+  if (jogadorAtual === 1) {
+    scoreValor.textContent =
+      pontosJogador1;
+  } else {
+    scoreValor.textContent =
+      pontosJogador2;
+  }
 }
 
-// ===============================
-// RANKING
-// ===============================
+// =====================================
+// PRÓXIMA PERGUNTA
+// =====================================
 
-function atualizarRanking() {
+function proximaPergunta() {
+  indicePerguntaAtual++;
 
-  const rankingLista =
-    document.getElementById(
-      "ranking"
+  if (
+    indicePerguntaAtual >=
+    bancoDePerguntas.length
+  ) {
+    trocarJogador();
+
+    return;
+  }
+
+  carregarPergunta();
+}
+
+// =====================================
+// TROCAR JOGADOR
+// =====================================
+
+function trocarJogador() {
+  if (jogadorAtual === 1) {
+    jogadorAtual = 2;
+
+    indicePerguntaAtual = 0;
+
+    scoreValor.textContent =
+      pontosJogador2;
+
+    mostrarFeedback(
+      `🎮 AGORA É A VEZ DE ${nomeJogador2}`,
+      "troca"
     );
 
-  rankingLista.innerHTML = "";
+    setTimeout(() => {
+      carregarPergunta();
+    }, 2000);
 
-  let ranking =
-    JSON.parse(
-      localStorage.getItem(
-        "ranking-multiplayer"
-      )
-    ) || [];
+    return;
+  } else {
+    mostrarResultadoFinal();
+  }
+}
 
-  ranking.forEach((jogador) => {
+// =====================================
+// RESULTADO FINAL
+// =====================================
 
-    const item =
-      document.createElement("li");
+function mostrarResultadoFinal() {
+  let vencedor = "EMPATE";
 
-    item.textContent =
-      `${jogador.nome} - ${jogador.pontos}`;
+  if (
+    pontosJogador1 >
+    pontosJogador2
+  ) {
+    vencedor = nomeJogador1;
+  }
 
-    rankingLista.appendChild(item);
-  });
+  if (
+    pontosJogador2 >
+    pontosJogador1
+  ) {
+    vencedor = nomeJogador2;
+  }
+
+  document.body.innerHTML = `
+    <div class="resultado-final">
+
+      <div class="resultado-card">
+
+        <h1>
+          🏆 RESULTADO FINAL 🏆
+        </h1>
+
+        <div class="placar-final">
+          <p>
+            ${nomeJogador1}
+          </p>
+
+          <span>
+            ${pontosJogador1} pontos
+          </span>
+        </div>
+
+        <div class="placar-final">
+          <p>
+            ${nomeJogador2}
+          </p>
+
+          <span>
+            ${pontosJogador2} pontos
+          </span>
+        </div>
+
+        <h2 class="vencedor">
+          VENCEDOR:
+          ${vencedor}
+        </h2>
+
+        <button
+          class="btn-jogar-novamente"
+          onclick="location.reload()"
+        >
+          JOGAR NOVAMENTE
+        </button>
+
+      </div>
+
+    </div>
+  `;
 }

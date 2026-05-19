@@ -2,71 +2,112 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
     <title>EnerQuest - Multiplayer</title>
+
     <!-- CSS -->
     <link
       rel="stylesheet"
-      href="/assets/css/pages/multiplayer/multiplayer.css"
+      href="../assets/css/pages/multiplayer/multiplayer.css"
     />
   </head>
 
   <body>
     <!-- BOTÃO VOLTAR -->
-    <a href="/modo.html" class="btn-voltar"> ✖ </a>
+    <a href="../modo.html" class="btn-voltar">
+      ✖
+    </a>
 
     <!-- TOPO -->
     <header class="topo">
-      <img src="/assets/img/logo2UPX.png" alt="EnerQuest" class="logo" />
+      <img
+        src="../assets/img/logo2UPX.png"
+        alt="EnerQuest"
+        class="logo"
+      />
     </header>
 
     <!-- CONTAINER -->
     <main class="game">
       <!-- HUD -->
       <div class="hud-container">
-        <!-- SCORE -->
         <div class="score-box">
           SCORE:
           <span id="score-valor">0</span>
         </div>
 
-        <!-- VIDAS -->
-        <!-- VIDAS -->
-        <div class="vidas-box" id="vidas-box">⚡ ⚡ ⚡</div>
-
-        <!-- RANKING -->
-        <div class="ranking-box">
-          <h3>RANKING</h3>
-
-          <ul id="ranking"></ul>
+        <div
+          class="vidas-box"
+          id="vidas-box"
+        >
+          ⚡ ⚡ ⚡
         </div>
       </div>
 
       <!-- LOGIN -->
-      <section id="login-area" class="login-area">
-        <h2>DIGITE SEU NOME</h2>
+      <section
+        id="login-area"
+        class="login-area"
+      >
+        <h2>MULTIPLAYER LOCAL</h2>
 
-        <input type="text" id="nomeJogador" placeholder="Jogador" />
+        <input
+          type="text"
+          id="nomeJogador1"
+          placeholder="Jogador 1"
+        />
 
-        <button class="btn-entrar" onclick="entrarJogo()">ENTRAR</button>
+        <input
+          type="text"
+          id="nomeJogador2"
+          placeholder="Jogador 2"
+        />
+
+        <button
+          class="btn-entrar"
+          onclick="entrarJogo()"
+        >
+          INICIAR
+        </button>
       </section>
 
       <!-- QUIZ -->
       <section class="quiz-area">
-        <!-- CONTEÚDO DO JOGO -->
-        <div id="conteudo-jogo" class="hidden">
+        <div
+          id="conteudo-jogo"
+          class="hidden"
+        >
+          <!-- JOGADOR -->
+          <h2 id="jogador-da-vez"></h2>
+
           <!-- PROGRESSO -->
           <div class="progresso-wrapper">
             <div class="progresso-container">
-              <div id="barra-progresso" class="barra-progresso"></div>
+              <div
+                id="barra-progresso"
+                class="barra-progresso"
+              ></div>
             </div>
 
-            <div id="contador-pergunta" class="contador-pergunta">1/3</div>
+            <div
+              id="contador-pergunta"
+              class="contador-pergunta"
+            >
+              1/3
+            </div>
           </div>
 
           <!-- PERGUNTA -->
           <div class="pergunta-container">
-            <div id="texto-pergunta" class="pergunta-nova"></div>
+            <div
+              id="texto-pergunta"
+              class="pergunta-nova"
+            ></div>
           </div>
 
           <!-- RESPOSTAS -->
@@ -92,13 +133,16 @@
     </main>
 
     <!-- FEEDBACK -->
-    <div id="feedback" class="feedback hidden">
+    <div
+      id="feedback"
+      class="feedback hidden"
+    >
       <div id="feedback-texto"></div>
     </div>
 
     <!-- JS -->
-    <script src="/assets/js/pages/solo/Banco-perguntas.js"></script>
+    <script src="../assets/js/pages/solo/Banco-perguntas.js"></script>
 
-    <script src="/assets/js/pages/multiplayer/multiplayer.js"></script>
+    <script src="../assets/js/pages/multiplayer/multiplayer.js"></script>
   </body>
 </html>
