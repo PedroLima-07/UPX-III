@@ -1,0 +1,32 @@
+/* ==========================================
+   FEEDBACK DE RESPOSTAS
+   ========================================== */
+
+.feedback {
+  position: fixed;
+
+  top: 30px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 18px 30px;
+
+  border-radius: 12px;
+
+  font-weight: bold;
+
+  z-index: 999;
+
+  animation: aparecer 0.3s ease;
+}
+
+.feedback-correto {
+  background: #00ff88;
+  color: black;
+}
+
+.feedback-errado {
+  background: #ff4d4d;
+  color: white;
+}

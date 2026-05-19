@@ -1,0 +1,20 @@
+/* ==========================================
+   SISTEMA DE VIDAS
+   ========================================== */
+
+.vidas-box {
+  display: flex;
+  gap: 10px;
+}
+
+.vida {
+  width: 35px;
+
+  transition: 0.3s;
+}
+
+.perdida {
+  opacity: 0.2;
+
+  filter: grayscale(1);
+}

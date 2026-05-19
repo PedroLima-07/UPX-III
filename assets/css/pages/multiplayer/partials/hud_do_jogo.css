@@ -1,0 +1,24 @@
+/* ==========================================
+   HUD DO JOGO
+   (Pontuação, Ranking e Vidas)
+   ========================================== */
+
+.hud-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.score-box,
+.ranking-box,
+.vidas-box {
+  background: rgba(12, 31, 74, 0.5);
+
+  border: 1px solid #2a4b8d;
+
+  border-radius: 12px;
+
+  padding: 15px;
+}

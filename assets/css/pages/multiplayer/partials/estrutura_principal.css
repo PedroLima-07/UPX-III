@@ -1,0 +1,15 @@
+/* ==========================================
+   ESTRUTURA PRINCIPAL DO JOGO
+   ========================================== */
+
+.game {
+  width: 100%;
+  max-width: 700px;
+
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
