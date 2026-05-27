@@ -1,6 +1,7 @@
-@import url(./partials/title.css);
-@import url(./partials/cards.css);
-@import url(./partials/button.css);
-@import url(./partials/tutorial.css);
+@import url(/UPX-III/assets/css/pages/modo/partials/title.css);
+@import url(/UPX-III/assets/css/pages/modo/partials/button.css);
+@import url(/UPX-III/assets/css/pages/modo/partials/cards.css);
+@import url(/UPX-III/assets/css/pages/modo/partials/tutorial.css);
 
-@import url(/assets/css/global/global.css);
+
+@import url(/UPX-III/assets/css/global/global.css);

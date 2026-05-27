@@ -1,5 +1,5 @@
-@import url(./partials/botao.css);
-@import url(./partials/logo.css);
+@import url(/UPX-III/assets/css/pages/home/partials/botao.css);
+@import url(/UPX-III/assets/css/pages/home/partials/logo.css);
 
 /*Import para padronizar paginas com css global*/
-@import url(/assets/css/global/global.css);
+@import url(/UPX-III/assets/css/global/global.css);

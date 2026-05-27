@@ -1,16 +1,16 @@
-@import url(./partials/animacoes.css);
-@import url(./partials/area_de_login.css);
-@import url(./partials/area_do_quiz.css);
-@import url(./partials/estrutura_principal.css);
-@import url(./partials/feedback_de_respostas.css);
-@import url(./partials/header.css);
-@import url(./partials/hud_do_jogo.css);
-@import url(./partials/perguntas_e_respostas.css);
-@import url(./partials/progresso_quiz.css);
-@import url(./partials/ranking.css);
-@import url(./partials/sistema_de_vidas.css);
+@import url(/UPX-III/assets/css/pages/multiplayer/partials/animacoes.css);
+@import url(/UPX-III/assets/css/pages/multiplayer/partials/area_de_login.css);
+@import url(/UPX-III/assets/css/pages/multiplayer/partials/area_do_quiz.css);
+@import url(/UPX-III/assets/css/pages/multiplayer/partials/estrutura_principal.css);
+@import url(/UPX-III/assets/css/pages/multiplayer/partials/feedback_de_respostas.css);
+@import url(/UPX-III/assets/css/pages/multiplayer/partials/header.css);
+@import url(/UPX-III/assets/css/pages/multiplayer/partials/hud_do_jogo.css);
+@import url(/UPX-III/assets/css/pages/multiplayer/partials/perguntas_e_respostas.css);
+@import url(/UPX-III/assets/css/pages/multiplayer/partials/progresso_quiz.css);
+@import url(/UPX-III/assets/css/pages/multiplayer/partials/ranking.css);
+@import url(/UPX-III/assets/css/pages/multiplayer/partials/sistema_de_vidas.css);
 
-@import url(../../global/global.css);
+@import url(/UPX-III/assets/css/global/global.css);
 
 /* ===================================
 GERAL

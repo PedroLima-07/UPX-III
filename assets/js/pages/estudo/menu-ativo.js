@@ -56,7 +56,7 @@ const paginas = {
   
   <div class="divisao"> 
   <div class="foto">
-      <img src="/assets/img/Solar.jpg" alt="Funcionamento da energia solar">
+      <img src="/UPX-III/assets/img/Solar.jpg" alt="Funcionamento da energia solar">
     </div>
 
     <div class="texto">
@@ -166,7 +166,7 @@ const paginas = {
       </div>
 
         <div class="titulo-secao-container">
-        <h3>🇧🇷 O Brasil como Potência Solar</h3>
+        <h3>O Brasil como Potência Solar</h3>
       </div>
 
       <p>O Brasil vive hoje uma verdadeira revolução energética. Graças à nossa localização privilegiada, recebemos altos índices de radiação solar durante todo o ano, o que nos coloca numa posição de destaque global.</p>
@@ -177,7 +177,7 @@ const paginas = {
       </div>
 
       <div class="bloco-imagem-legenda">
-        <img src="/assets/img/Canal-Solar-Ceara-recebe-novo-aporte-para-expansao-de-parques-solares.webp" alt="Parque Solar no Nordeste">
+        <img src="/UPX-III/assets/img/Canal-Solar-Ceara-recebe-novo-aporte-para-expansao-de-parques-solares.webp" alt="Parque Solar no Nordeste">
         <span class="legenda">Complexos solares no semiárido aproveitam a alta incidência de raios UV e baixa nebulosidade.</span>
       </div>
 
@@ -280,7 +280,7 @@ const paginas = {
   
   <div class="divisao"> 
   <div class="foto">
-      <img src="/assets/img/Turbina eolica.jpg" alt="Turbina Eolica">
+      <img src="/UPX-III/assets/img/Turbina eolica.jpg" alt="Turbina Eolica">
     </div>
 
     <div class="texto">
@@ -390,7 +390,7 @@ const paginas = {
       </div>
 
         <div class="titulo-secao-container">
-        <h3>🇧🇷 O Brasil na Liderança dos Ventos</h3>
+        <h3>O Brasil na Liderança dos Ventos</h3>
       </div>
 
       <p>O Brasil é uma verdadeira potência mundial na geração eólica. Nossos ventos, especialmente no litoral e interior do Nordeste, são considerados uns dos melhores do mundo por serem constantes e unidirecionais.</p>
@@ -401,7 +401,7 @@ const paginas = {
       </div>
 
       <div class="bloco-imagem-legenda">
-        <img src="/assets/img/Complexo-Eólico-Lagoa -dos-Ventos.jpg" alt="Parque Eólico no Nordeste">
+        <img src="/UPX-III/assets/img/Complexo-Eólico-Lagoa -dos-Ventos.jpg" alt="Parque Eólico no Nordeste">
         <span class="legenda">Parques eólicos na região Nordeste, que concentra a esmagadora maioria da produção nacional.</span>
       </div>
 
@@ -415,7 +415,7 @@ const paginas = {
 
       <div class="divisao inversa">
         <div class="foto">
-          <img src="/assets/img/Fronteira-eolica-offshore.jpg" alt="Projeto Eólico Offshore">
+          <img src="/UPX-III/assets/img/Fronteira-eolica-offshore.jpg" alt="Projeto Eólico Offshore">
         </div>
         <div class="texto">
           <h4 class="titulo-bloco">A Fronteira Offshore</h4>
@@ -493,7 +493,7 @@ const paginas = {
         </div>
 
         <div class="foto">
-          <img src="/assets/img/Usina-Hidreletrica.jpg" alt="Vista aérea de uma grande usina hidrelétrica">
+          <img src="/UPX-III/assets/img/Usina-Hidreletrica.jpg" alt="Vista aérea de uma grande usina hidrelétrica">
         </div>
 
       </div>
@@ -502,7 +502,7 @@ const paginas = {
   
   <div class="divisao"> 
   <div class="foto">
-      <img src="/assets/img/Como-funciona-hidreletrica.jpg" alt="Turbina e gerador interno de uma usina">
+      <img src="/UPX-III/assets/img/Como-funciona-hidreletrica.jpg" alt="Turbina e gerador interno de uma usina">
     </div>
 
     <div class="texto">
@@ -612,7 +612,7 @@ const paginas = {
       </div>
 
         <div class="titulo-secao-container">
-        <h3>🇧🇷 O Brasil e a Força das Águas</h3>
+        <h3>O Brasil e a Força das Águas</h3>
       </div>
 
       <p>O Brasil possui uma das maiores redes fluviais do mundo, o que permitiu que construíssemos uma das matrizes elétricas mais limpas do planeta. A hidroeletricidade é a nossa "bateria" principal.</p>
@@ -623,7 +623,7 @@ const paginas = {
       </div>
 
       <div class="bloco-imagem-legenda">
-        <img src="/assets/img/Barragem-itapu.jpg" alt="Vertedouro da Usina de Itaipu aberto">
+        <img src="/UPX-III/assets/img/Barragem-itapu.jpg" alt="Vertedouro da Usina de Itaipu aberto">
         <span class="legenda">Itaipu Binacional: um marco da engenharia brasileira e paraguaia e uma das maiores produtoras de energia do mundo.</span>
       </div>
 
@@ -637,7 +637,7 @@ const paginas = {
 
       <div class="divisao inversa">
         <div class="foto">
-          <img src="/assets/img/pequenas-centrais-hidreletricas.jpg" alt="Uma Pequena Central Hidrelétrica integrada à natureza">
+          <img src="/UPX-III/assets/img/pequenas-centrais-hidreletricas.jpg" alt="Uma Pequena Central Hidrelétrica integrada à natureza">
         </div>
         <div class="texto">
           <h4 class="titulo-bloco">O Futuro: Pequenas Centrais (PCHs)</h4>
@@ -715,7 +715,7 @@ const paginas = {
         </div>
 
         <div class="foto">
-          <img src="/assets/img/biomassa.png" alt="Representação da biomassa">
+          <img src="/UPX-III/assets/img/biomassa.png" alt="Representação da biomassa">
         </div>
 
       </div>
@@ -724,7 +724,7 @@ const paginas = {
   
   <div class="divisao"> 
   <div class="foto">
-      <img src="/assets/img/Como-funciona-biomassa.png" alt="Como funciona o processo de geração de energia a partir da biomassa">
+      <img src="/UPX-III/assets/img/Como-funciona-biomassa.png" alt="Como funciona o processo de geração de energia a partir da biomassa">
     </div>
 
     <div class="texto">
@@ -834,7 +834,7 @@ const paginas = {
       </div>
 
         <div class="titulo-secao-container">
-        <h3>🇧🇷 O Brasil: Gigante da Bioenergia</h3>
+        <h3>O Brasil: Gigante da Bioenergia</h3>
       </div>
 
       <p>Graças à força do nosso agronegócio, o Brasil é uma das maiores referências mundiais no uso de biomassa. A nossa capacidade de aliar a produção de alimentos com a geração de energia limpa é um modelo para outros países.</p>
@@ -845,7 +845,7 @@ const paginas = {
       </div>
 
       <div class="bloco-imagem-legenda">
-        <img src="/assets/img/Plantação-de-cana.jpeg" alt="Plantação de Cana-de-açúcar">
+        <img src="/UPX-III/assets/img/Plantação-de-cana.jpeg" alt="Plantação de Cana-de-açúcar">
         <span class="legenda">A cana-de-açúcar é a grande estrela da biomassa nacional, fornecendo açúcar, etanol e eletricidade.</span>
       </div>
 
@@ -859,7 +859,7 @@ const paginas = {
 
       <div class="divisao inversa">
         <div class="foto">
-          <img src="/assets/img/geração-de-biogás.webp" alt="Biorreatores e infraestrutura de biogás">
+          <img src="/UPX-III/assets/img/geração-de-biogás.webp" alt="Biorreatores e infraestrutura de biogás">
         </div>
         <div class="texto">
           <h4 class="titulo-bloco">Biogás: O Luxo do Lixo</h4>
@@ -936,7 +936,7 @@ const paginas = {
         </div>
 
         <div class="foto">
-          <img src="/assets/img/geiser.jpg" alt="Gêiser expelindo vapor de água quente">
+          <img src="/UPX-III/assets/img/geiser.jpg" alt="Gêiser expelindo vapor de água quente">
         </div>
 
       </div>
@@ -945,7 +945,7 @@ const paginas = {
   
   <div class="divisao"> 
   <div class="foto">
-      <img src="/assets/img/Como-funciona-a-energia-geotermica.jpeg" alt="Tubulações de uma usina geotérmica">
+      <img src="/UPX-III/assets/img/Como-funciona-a-energia-geotermica.jpeg" alt="Tubulações de uma usina geotérmica">
     </div>
 
     <div class="texto">
@@ -1055,7 +1055,7 @@ const paginas = {
       </div>
 
         <div class="titulo-secao-container">
-        <h3>🇧🇷 O Brasil e o Calor da Terra</h3>
+        <h3>O Brasil e o Calor da Terra</h3>
       </div>
 
       <p>O Brasil está localizado bem no meio da Placa Tectônica Sul-Americana. Como não temos falhas geológicas ativas ou vulcões, o magma está muito profundo. Portanto, <strong>não produzimos eletricidade</strong> com energia geotérmica, mas somos gigantes no seu uso direto!</p>
@@ -1066,7 +1066,7 @@ const paginas = {
       </div>
 
       <div class="bloco-imagem-legenda">
-        <img src="/assets/img/Lazer.jpeg" alt="Piscinas naturais de águas termais">
+        <img src="/UPX-III/assets/img/Lazer.jpeg" alt="Piscinas naturais de águas termais">
         <span class="legenda">O uso do calor geotérmico no Brasil é voltado quase 100% para o lazer e tratamentos terapêuticos.</span>
       </div>
 
@@ -1080,7 +1080,7 @@ const paginas = {
 
       <div class="divisao inversa">
         <div class="foto">
-          <img src="/assets/img/Aquifero-guarani.jpg" alt="Equipamentos de perfuração geológica">
+          <img src="/UPX-III/assets/img/Aquifero-guarani.jpg" alt="Equipamentos de perfuração geológica">
         </div>
         <div class="texto">
           <h4 class="titulo-bloco">O Futuro: O Aquífero Guarani</h4>
