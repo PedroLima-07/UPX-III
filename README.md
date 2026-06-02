@@ -106,8 +106,6 @@ Este modo promove interação social, competição saudável e aprendizagem cola
 
 ## 🌐 Acesso ao Projeto
 
-Caso esteja publicado:
-
 ```text
 https://pedrolima-07.github.io/enerquest/
 ```
